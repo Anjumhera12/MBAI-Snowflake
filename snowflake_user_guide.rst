@@ -1,5 +1,7 @@
 The objective of this document is to provide a structured **user and implementation guide** for **Matchbook AI’s Snowflake Connector**, covering both **business users** and **IT administrators**. Connectors enable existing Snowflake customers to seamlessly integrate Matchbook AI’s cleanse, match, enrich, and monitor APIs into their environment. This empowers users to streamline data transformation and enrichment workflows without leaving their existing platform. 
 
+Hi
+ 
 1. **Guide Users in Data Management** – Help business users navigate Matchbook AI, manage source data, and download matched records. 
 
 2. **Assist with Technical Implementation** – Provide IT teams with clear instructions on setting up, configuring, and optimizing Matchbook AI within Snowflake and Data Sharing. 
