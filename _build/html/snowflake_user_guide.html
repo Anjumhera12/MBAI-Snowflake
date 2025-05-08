@@ -6,7 +6,7 @@
 <link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="prev" title="Snowflake documentation" href="index.html" />
 
     <!-- Generated with Sphinx 8.2.3 and Furo 2024.08.06 -->
-        <title>1. User Guide - Snowflake documentation</title>
+        <title>Introduction - Snowflake documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=8f2a1f02" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?v=354aac6f" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo-extensions.css?v=302659d7" />
@@ -200,7 +200,7 @@
 <div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
   <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul class="current">
-<li class="toctree-l1 current current-page"><a class="current reference internal" href="#">1. User Guide</a></li>
+<li class="toctree-l1 current current-page"><a class="current reference internal" href="#">Introduction</a></li>
 </ul>
 
 </div>
@@ -241,7 +241,9 @@
           </label>
         </div>
         <article role="main" id="furo-main-content">
-          <p>The objective of this document is to provide a structured <strong>user and implementation guide</strong> for <strong>Matchbook AI’s Snowflake Connector</strong>, covering both <strong>business users</strong> and <strong>IT administrators</strong>. Connectors enable existing Snowflake customers to seamlessly integrate Matchbook AI’s cleanse, match, enrich, and monitor APIs into their environment. This empowers users to streamline data transformation and enrichment workflows without leaving their existing platform.</p>
+          <section id="introduction">
+<h1>Introduction<a class="headerlink" href="#introduction" title="Link to this heading">¶</a></h1>
+<p>The objective of this document is to provide a structured <strong>user and implementation guide</strong> for <strong>Matchbook AI’s Snowflake Connector</strong>, covering both <strong>business users</strong> and <strong>IT administrators</strong>. Connectors enable existing Snowflake customers to seamlessly integrate Matchbook AI’s cleanse, match, enrich, and monitor APIs into their environment. This empowers users to streamline data transformation and enrichment workflows without leaving their existing platform.</p>
 <ol class="arabic simple">
 <li><p><strong>Guide Users in Data Management</strong> – Help business users navigate Matchbook AI, manage source data, and download matched records.</p></li>
 <li><p><strong>Assist with Technical Implementation</strong> – Provide IT teams with clear instructions on setting up, configuring, and optimizing Matchbook AI within Snowflake and Data Sharing.</p></li>
@@ -255,52 +257,323 @@
 <li><p>Eliminates issues related to inaccurate data, outdated information, and data silos.</p></li>
 </ul>
 <section id="user-guide">
-<h1>1. User Guide<a class="headerlink" href="#user-guide" title="Link to this heading">¶</a></h1>
+<h2>1. User Guide<a class="headerlink" href="#user-guide" title="Link to this heading">¶</a></h2>
 <p>This guide provides business users and IT administrators with a structured approach to integrating Matchbook AI’s cleanse, match, enrich, and monitor APIs within Snowflake. It helps business users navigate Matchbook AI, manage source data, and download matched records.</p>
 <section id="log-in-to-snowflake">
-<h2>1.1 Log in to Snowflake<a class="headerlink" href="#log-in-to-snowflake" title="Link to this heading">¶</a></h2>
+<h3>1.1 Log in to Snowflake<a class="headerlink" href="#log-in-to-snowflake" title="Link to this heading">¶</a></h3>
 <p>Navigate to your Snowflake account using the provided URL: <a class="reference external" href="https://app.snowflake.com/matchbook/dev/#/homepage">https://app.snowflake.com/matchbook/dev/#/homepage</a></p>
 <figure class="align-default">
 <img alt="_images/1.png" src="_images/1.png" />
 </figure>
 </section>
 <section id="access-snowflake-account-for-individual">
-<h2>1.2 Access Snowflake account for individual<a class="headerlink" href="#access-snowflake-account-for-individual" title="Link to this heading">¶</a></h2>
+<h3>1.2 Access Snowflake account for individual<a class="headerlink" href="#access-snowflake-account-for-individual" title="Link to this heading">¶</a></h3>
 <p>Each user has unique login credentials. Log in using your assigned <strong>username</strong> and <strong>password</strong>.</p>
 <figure class="align-default">
-<img alt="_images/1.png" src="_images/1.png" />
+<img alt="_images/2.png" src="_images/2.png" />
 </figure>
 <p>Once logged in, you will be directed to the <strong>Snowflake console dashboard</strong>.</p>
+<figure class="align-default">
+<img alt="_images/3.png" src="_images/3.png" />
+</figure>
 </section>
 <section id="setting-up-the-database-and-schema">
-<h2>1.3 Setting Up the Database and Schema<a class="headerlink" href="#setting-up-the-database-and-schema" title="Link to this heading">¶</a></h2>
+<h3>1.3 Setting Up the Database and Schema<a class="headerlink" href="#setting-up-the-database-and-schema" title="Link to this heading">¶</a></h3>
 <section id="creating-database-and-schema">
-<h3>Creating Database and Schema<a class="headerlink" href="#creating-database-and-schema" title="Link to this heading">¶</a></h3>
+<h4>Creating Database and Schema<a class="headerlink" href="#creating-database-and-schema" title="Link to this heading">¶</a></h4>
 <p>From the left side menu, go to ‘<strong>Data</strong>’ and select ‘<strong>Databases</strong>’, then click on ‘<strong>+ Database</strong>’ to create a new one.</p>
+<figure class="align-default">
+<img alt="_images/4.png" src="_images/4.png" />
+</figure>
 <p>A pop-up window will appear. Enter a name for the database and a comment (optional), then click ‘<strong>Create</strong>’.</p>
+<figure class="align-default">
+<img alt="_images/5.png" src="_images/5.png" />
+</figure>
 <p>Once the database is created, it will appear on the left-hand side. Click on the name of the database you created, then click on ‘<strong>+ Schema</strong>’.</p>
+<figure class="align-default">
+<img alt="_images/6.png" src="_images/6.png" />
+</figure>
 <p>A pop-up window will appear. Enter the name for the schema and a comment (optional), then click ‘<strong>Create</strong>’ to create the schema.</p>
+<figure class="align-default">
+<img alt="_images/7.png" src="_images/7.png" />
+</figure>
 </section>
 </section>
 <section id="creating-worksheets">
-<h2>1.4 Creating Worksheets<a class="headerlink" href="#creating-worksheets" title="Link to this heading">¶</a></h2>
+<h3>1.4 Creating Worksheets<a class="headerlink" href="#creating-worksheets" title="Link to this heading">¶</a></h3>
 <section id="create-separate-worksheet">
-<h3>Create Separate worksheet<a class="headerlink" href="#create-separate-worksheet" title="Link to this heading">¶</a></h3>
+<h4>Create Separate worksheet<a class="headerlink" href="#create-separate-worksheet" title="Link to this heading">¶</a></h4>
 <p>A separate worksheet should be created for each client to share their data and results. To create a worksheet, on the dashboard, select <strong>Worksheets</strong> and click on <strong>Go to Worksheets</strong>.</p>
-<p>(or) from the left-hand menu, select <strong>Projects</strong>-&gt; <strong>Worksheets</strong>.</p>
+<p>(or) from the left-hand menu, select <strong>Projects</strong> -&gt; <strong>Worksheets</strong>.</p>
+<figure class="align-default">
+<img alt="_images/8.png" src="_images/8.png" />
+</figure>
 <p>You will be redirected to a new page, select <strong>SQL Worksheet</strong> from the drop-down menu.</p>
+<figure class="align-default">
+<img alt="_images/9.png" src="_images/9.png" />
+</figure>
 </section>
 <section id="configuring-database-and-schema">
-<h3>Configuring Database and Schema<a class="headerlink" href="#configuring-database-and-schema" title="Link to this heading">¶</a></h3>
+<h4>Configuring Database and Schema<a class="headerlink" href="#configuring-database-and-schema" title="Link to this heading">¶</a></h4>
 <p>Once you select the SQL Worksheet, a new page opens.</p>
 <p><strong>Select the Role and Virtual Warehouse</strong>:</p>
 <p>Click on the dot icon as shown in the screen below.</p>
+<figure class="align-default">
+<img alt="_images/10.png" src="_images/10.png" />
+</figure>
 <p>As each worksheet can access only the allowed databases, select the <strong>Role</strong> and <strong>Virtual Warehouse</strong>, as shown below.</p>
+<figure class="align-default">
+<img alt="_images/11.png" src="_images/11.png" />
+</figure>
 <p><strong>Use case</strong>: Suppose a client wants to log in using the <strong>DATAENGINEER</strong> role and execute code with a <strong>Medium</strong> warehouse size. In this case, they should select the appropriate <strong>Role</strong> and <strong>Virtual Warehouse</strong> as demonstrated above.</p>
 <p>Role: DATAENGINEER</p>
 <p>Run on warehouse: DEVELOPER_MEDIUM</p>
 <p><strong>Select Database and Schema</strong>:</p>
 <p>Select the database and schema by clicking on <strong>No Database selected</strong> drop-down menu as shown in the screen below.</p>
+<figure class="align-default">
+<img alt="_images/12.png" src="_images/12.png" />
+</figure>
+<p><strong>Note</strong>: <em>Only the specified database and schema will have execution access unless explicit permissions are granted to other databases and schemas.</em></p>
+<p><strong>Use case</strong>: Select the database and schema as shown in the screen below. Here, SNOWFLAKE CONNECTOR is selected as database and SFCONNECTOR is selected as schema.</p>
+<figure class="align-default">
+<img alt="_images/13.png" src="_images/13.png" />
+</figure>
+<p><strong>Note</strong>: <em>Once the worksheet is created, it will appear on the dashboard.</em></p>
+<p>Once the user opens a new worksheet and selects the appropriate database and schema, they need to execute the shared SQL scripts one by one. These scripts grant the necessary permissions required for the Snowflake app or the logged-in user to run the connector process.</p>
+<p>The first script to be executed is the <strong>initialization script</strong>.</p>
+<p>Running this script creates an egress network rule, which is needed to whitelist the MBAI server URL.</p>
+<figure class="align-default">
+<img alt="_images/14.png" src="_images/14.png" />
+</figure>
+<p>It also creates the secret store table where the information required for calling MBAI APIs is stored.</p>
+<figure class="align-default">
+<img alt="_images/15.png" src="_images/15.png" />
+</figure>
+<p>To create a table, click on the schema you created, then click on the ‘<strong>Create</strong>’ dropdown menu.</p>
+<figure class="align-default">
+<img alt="_images/16.png" src="_images/16.png" />
+</figure>
+<p>From the menu, select ‘<strong>Table</strong>’ and choose ‘<strong>From File</strong>’.</p>
+<figure class="align-default">
+<img alt="_images/17.png" src="_images/17.png" />
+</figure>
+</section>
+<section id="adding-source-data-assets">
+<h4>Adding source data assets<a class="headerlink" href="#adding-source-data-assets" title="Link to this heading">¶</a></h4>
+<p>A pop-up window opens to select a warehouse.</p>
+<p><strong>Use case</strong>: Here, DEVELOPER MEDIUM is selected.</p>
+<p>After selecting the warehouse, a pop-up window will appear. Import input data using <strong>CSV</strong> or <strong>Excel</strong> files by clicking on <strong>Browse</strong>. Select the database, schema, and table, and provide a name for the file you are uploading. Then, click ‘<strong>Next</strong>’.</p>
+<figure class="align-default">
+<img alt="_images/18.png" src="_images/18.png" />
+</figure>
+<p>After clicking on <strong>Next</strong>, it takes few seconds to load data into table. Ensure all required columns are correctly populated with metadata. Click <strong>Load</strong> data to table to complete the process.</p>
+<figure class="align-default">
+<img alt="_images/19.png" src="_images/19.png" />
+</figure>
+<p>A success message is displayed after the data is loaded.</p>
+<figure class="align-default">
+<img alt="_images/20.png" src="_images/20.png" />
+</figure>
+<p><strong>Note</strong>:</p>
+<ul class="simple">
+<li><p><em>Clicking on ‘Query Data’ opens a new worksheet</em>.</p></li>
+</ul>
+<blockquote>
+<div><ul class="simple">
+<li><p><em>Clicking on ‘Done’ closes the pop-up, and you can then create a worksheet from the dashboard</em>.</p></li>
+</ul>
+</div></blockquote>
+<p>After this, the remaining scripts should be executed one by one. It is recommended to create separate worksheets for each script to be executed.</p>
+<figure class="align-default">
+<img alt="_images/21.png" src="_images/21.png" />
+</figure>
+<p>The table below includes the scripts.</p>
+<p>DROP TABLE IF EXISTS SNOWFLAKECONNECTOR.SFCONNECTOR.BUSINESS_ENTITIES_INPUTS_KULDIP;
+DROP TABLE IF EXISTS SNOWFLAKECONNECTOR.FINAL_SCHEMA.MATCH_MATCHOUTPUT_KULDIP;
+DROP TABLE IF EXISTS SNOWFLAKECONNECTOR.FINAL_SCHEMA.MATCH_ENRICHMENT_KULDIP;</p>
+<blockquote>
+<div><p>DROP TABLE IF EXISTS SNOWFLAKECONNECTOR.FINAL_SCHEMA.STG_KULDIP;</p>
+</div></blockquote>
+<p>Call MATCHBOOK_MAINSCRIPT (‘SNOWFLAKE_DEV’,’SFCONNECTOR’,’AAAA’,’FINAL_SCHEMA’,’MATCHOUTPUT_AAAA’,50,’[SRC::Demo]’);
+call matchbook_enrichmentscript(‘SNOWFLAKE_DEV’, ‘FINAL_SCHEMA’, ‘MATCHOUTPUT_DB_147_TESTING_070401’, ‘FINAL_SCHEMA’, ‘ENRICHMENT_DB_147_TESTING_070401’, 50, ‘[“Firmographics”]’);
+call downloadmatcheddata(‘SNOWFLAKE_DEV’,’FINAL_SCHEMA’,’STG_KULDIP’,’FINAL_SCHEMA’,’MATCHOUTPUT_DB_147_TESTING_070401’,10,’[SRC::Demo]’);</p>
+<p>Select * from “SNOWFLAKECONNECTOR”.”FINAL_SCHEN”.”SNOWFLAKE_DEV_MATCHOUTPUT_DB_147_TESTING_070401”;</p>
+<p><strong>Note</strong>: If we need to re-import the worksheet or deploy a new version of the code, we use ‘<em>DROP TABLE</em>’ and perform cleanup.</p>
+<ul class="simple">
+<li><p><strong>CALL MATCHBOOK_MAINSCRIPT</strong>: Runs the main Matchbook workflow to cleanse, match, and process your source data.</p></li>
+</ul>
+<blockquote>
+<div><p>This is the primary script to kick off the end-to-end data pipeline.</p>
+</div></blockquote>
+<ul class="simple">
+<li><p><strong>CALL MATCHBOOK_ENRICHMENTSCRIPT</strong>: Enriches matched records with additional attributes like firmographics from D&amp;B.</p></li>
+</ul>
+<blockquote>
+<div><p>Use this after matching to add more context and value to your data.</p>
+</div></blockquote>
+<ul class="simple">
+<li><p><strong>CALL DOWNLOADMATCHEDDATA</strong>: Exports the final set of matched and enriched records from Snowflake.</p></li>
+</ul>
+<p>Use this to retrieve your processed data for reporting or downstream use.</p>
+<p>As the user runs these scripts, they trigger specific stored procedures and functions that Snowflake uses to connect to the MBAI server and retrieve the required data for various tasks.</p>
+<p>Here is an example of how it looks:</p>
+<p><strong>Procedures</strong>:</p>
+<figure class="align-default">
+<img alt="_images/22.png" src="_images/22.png" />
+</figure>
+<p><strong>Functions</strong>:</p>
+<figure class="align-default">
+<img alt="_images/23.png" src="_images/23.png" />
+</figure>
+<p>Inside the stage folder, the supporting Python scripts need to be imported. These scripts contain supporting functions for calling the MBAI APIs. They are used within the procedures and functions defined in the SQL scripts.</p>
+</section>
+</section>
+<section id="deploying-scripts-and-sharing-data-in-snowflake">
+<h3>1.5 Deploying Scripts and Sharing Data in Snowflake<a class="headerlink" href="#deploying-scripts-and-sharing-data-in-snowflake" title="Link to this heading">¶</a></h3>
+<p><strong>Script Deployment</strong></p>
+<ol class="arabic simple">
+<li><p>Deploy all three scripts in the Snowflake environment using the correct <strong>Role</strong>, <strong>Database</strong>, and <strong>Schema</strong> as shown.</p></li>
+<li><p>Run the procedure in your worksheet. Once successfully created, a confirmation message will appear in the <strong>Snowflake message box</strong>.</p></li>
+</ol>
+<figure class="align-default">
+<img alt="_images/24.png" src="_images/24.png" />
+</figure>
+<p><strong>Data Sharing Process</strong></p>
+<ol class="arabic simple">
+<li><p>User Data Sharing</p></li>
+</ol>
+<blockquote>
+<div><ol class="loweralpha simple">
+<li><p>Users share <strong>sample data</strong>, identified by a <strong>client ID</strong> (e.g., MBQA1).</p></li>
+<li><p>Data is available within a <strong>specific schema</strong>, allowing users to share either the <strong>schema</strong> or <strong>table</strong>.</p></li>
+</ol>
+</div></blockquote>
+<ol class="arabic simple" start="2">
+<li><p>Granting Access</p></li>
+</ol>
+<blockquote>
+<div><ol class="loweralpha simple">
+<li><p>Perform the <strong>grant share</strong> action to provide access to the recipient.</p></li>
+<li><p>Verify the recipient and confirm that <strong>Matchbook AI</strong> has access to the shared data.</p></li>
+</ol>
+</div></blockquote>
+<ol class="arabic simple" start="3">
+<li><p>Process Establishment</p></li>
+</ol>
+<blockquote>
+<div><ol class="loweralpha simple">
+<li><p>Customer Responsibilities: Follow the outlined steps to share data via <strong>Delta Sharing</strong>.</p></li>
+<li><p>Our Responsibilities: Configure processes and setups based on the shared data.</p></li>
+</ol>
+</div></blockquote>
+<ol class="arabic simple" start="4">
+<li><p>Process Configuration</p></li>
+</ol>
+<blockquote>
+<div><ol class="loweralpha simple">
+<li><p>Job Creation: Set up scripts for <strong>cleanse, match, classify, enrich, and refresh</strong>.</p></li>
+<li><p>Configure <strong>job settings</strong> and <strong>parameters</strong> accordingly.</p></li>
+<li><p>Start by configuring the <strong>share name</strong> in the <strong>Cleanse Match</strong> job.</p></li>
+</ol>
+</div></blockquote>
+<p><strong>Note</strong>: This sharing process is manual. Our system will automatically generate a <strong>Database</strong> linked to your <strong>client ID</strong>, ensuring seamless access. Each client will have a unique identifier.</p>
+<p><strong>Viewing Shared Tables</strong></p>
+<p>To view the tables shared with you, follow these steps:</p>
+<section id="managing-the-key-vault">
+<h4>1.5.1 Managing the key vault<a class="headerlink" href="#managing-the-key-vault" title="Link to this heading">¶</a></h4>
+<ul class="simple">
+<li><p>Snowflake does not support adding secrets through a standard user account. Instead, secrets must be managed by an <strong>authorized user</strong>.</p></li>
+<li><p>Secrets can be organized within a <strong>secret store</strong>, where each store is dedicated to a specific client. For example, we establish <strong>client-specific scopes</strong> to manage API keys and secrets securely.</p></li>
+<li><p>To demonstrate, we can <strong>list the secrets</strong> within a secret store by specifying the <strong>client’s name</strong> as the secret store. Within this store, we can manage and update various credentials, such as <strong>tokens, API keys, and other sensitive data</strong>.</p></li>
+</ul>
+</section>
+<section id="managing-auth-token">
+<h4>1.5.2 Managing Auth token<a class="headerlink" href="#managing-auth-token" title="Link to this heading">¶</a></h4>
+<ul class="simple">
+<li><p>The authentication token is used to <strong>automate specific processes</strong>, such as triggering the <strong>enrichment data process</strong>. To achieve this, we make calls to the <strong>Snowflake REST API</strong>.</p></li>
+<li><p>This token is <strong>generated directly from Snowflake</strong> and is specific to the <strong>Snowflake database</strong>, not our own system. It is solely used to <strong>authenticate and trigger Snowflake API calls</strong> for process execution.</p></li>
+</ul>
+</section>
+<section id="retrieving-the-token-for-the-client">
+<h4>1.5.3 Retrieving the Token for the Client<a class="headerlink" href="#retrieving-the-token-for-the-client" title="Link to this heading">¶</a></h4>
+<p>Each script <strong>generates a token at the beginning</strong>, which is then <strong>used throughout the execution</strong> to avoid multiple token generations. A <strong>new token is only created if the existing one expires</strong>, ensuring efficient token management and reducing unnecessary requests. Once processed, the <strong>output table will contain new records</strong>, and the <strong>next script will trigger automatically</strong>.</p>
+</section>
+<section id="process-enrichment-data">
+<h4>1.5.4 Process Enrichment Data<a class="headerlink" href="#process-enrichment-data" title="Link to this heading">¶</a></h4>
+<p>A Python script is created for each client, integrating essential values such as <strong>MB_QA1, API keys</strong>, and secrets for initial setup. This script automates the generation of required components, allowing clients to set up jobs while enabling direct REST API calls, eliminating manual intervention.</p>
+<p><strong>Enrichment Classes Optimization</strong></p>
+<p>Optimizing enrichment classes by improving stage table performance and centralizing parameters for streamlined management.</p>
+<ul class="simple">
+<li><p><strong>Stage Table Optimization</strong>- Enhance the structure and performance of the stage table.</p></li>
+<li><p><strong>Centralized Parameters</strong>- Consolidate and organize all parameters in a single location for efficient management.</p></li>
+</ul>
+<section id="optimization">
+<h5><em>Optimization</em><a class="headerlink" href="#optimization" title="Link to this heading">¶</a></h5>
+<p>To improve efficiency, the process focuses on enhancing the stage table’s structure and performance, centralizing parameters for better management, and implementing input merge updates to streamline data handling.</p>
+<ul class="simple">
+<li><p>Enhance the structure and performance of the stage table.</p></li>
+<li><p>Centralize all parameters for better management.</p></li>
+<li><p>Implement input merge updates for efficiency.</p></li>
+</ul>
+<figure class="align-default">
+<img alt="_images/25.png" src="_images/25.png" />
+</figure>
+</section>
+<section id="run-jobs">
+<h5><em>Run Jobs</em><a class="headerlink" href="#run-jobs" title="Link to this heading">¶</a></h5>
+<p>Go to the <strong>Procedure</strong> tab within the schema and select the <strong>Enrichment</strong> script.</p>
+</section>
+<section id="running-the-cleansematch-process">
+<h5><em>Running the Cleansematch Process</em><a class="headerlink" href="#running-the-cleansematch-process" title="Link to this heading">¶</a></h5>
+<p>The Cleansematch process is a crucial first step in data processing. It involves executing the script with the required arguments, validating configurations, and managing the Database and tables.</p>
+<section id="initial-setup">
+<h6>Initial Setup<a class="headerlink" href="#initial-setup" title="Link to this heading">¶</a></h6>
+<ul class="simple">
+<li><p>The <strong>Cleansematch</strong> process is mandatory and should be run first.</p></li>
+<li><p>Execute the script with the required arguments.</p></li>
+</ul>
+<figure class="align-default">
+<img alt="_images/26.png" src="_images/26.png" />
+</figure>
+</section>
+<section id="configuration-and-validation">
+<h6>Configuration and Validation<a class="headerlink" href="#configuration-and-validation" title="Link to this heading">¶</a></h6>
+<ul class="simple">
+<li><p>Verify that <strong>batch_size</strong> is between 1 and 50; otherwise, an error will be thrown.</p></li>
+<li><p>Validate the <strong>delta_sharing_mode</strong> configuration parameter.</p></li>
+<li><p>Ensure the <strong>share name</strong> matches the <strong>client_id</strong>.</p></li>
+</ul>
+</section>
+<section id="database-and-table-management">
+<h6>Database and Table Management<a class="headerlink" href="#database-and-table-management" title="Link to this heading">¶</a></h6>
+<ul class="simple">
+<li><p>If the <strong>Database</strong> does not exist, it will be created automatically.</p></li>
+<li><p>If the <strong>destination_table</strong> is unavailable, clone the <strong>source_table</strong> and add a <strong>Status</strong> column, defaulting to <strong>NEW</strong>.</p></li>
+</ul>
+</section>
+</section>
+<section id="id1">
+<h5><em>Process Enrichment Data</em><a class="headerlink" href="#id1" title="Link to this heading">¶</a></h5>
+<p>If the delta_sharing_mode configuration parameter is provided, the system validates the provider using the delta_sharing_identifier. If a valid provider is not found, an error is thrown. When clients share data via delta sharing, they must ensure that the share name matches the client_id, as this is essential for identifying the correct share when multiple clients are involved. If there is a mismatch, an error will be triggered. Once the share is successfully identified, the system will automatically create the Database if it does not already exist.</p>
+<p>If the <strong>destination_table</strong> (where the match output result will be stored) is not available:</p>
+<ul class="simple">
+<li><p>Clone the <strong>source table</strong>.</p></li>
+<li><p>Add a new column called <strong>Status</strong> and set its value to <strong>NEW</strong>.</p></li>
+<li><p>Set <strong>NEW</strong> as the default value so that all newly inserted records have this status.</p></li>
+</ul>
+<p>If the <strong>destination_table</strong> is available:</p>
+<ul class="simple">
+<li><p>Sync the <strong>source_table</strong> and <strong>destination_table</strong> using the primary key provided by the user. Match records and add any that do not exist in the destination_table.</p></li>
+<li><p>Sync records with ERROR status that have been updated in the source_table, update them in the destination_table, and set their status to NEW for reprocessing.</p></li>
+<li><p>During the syncing process, save the current UTC timestamp in the table as a checkpoint for future synchronization of records with ERROR status.</p></li>
+</ul>
+<p>For all records in the destination_table:</p>
+<p>If a record is NEW and Tags is NULL or EMPTY, update Tags to NULL if it is EMPTY.</p>
+<p>If the Tags parameter is provided, update records with the provided value in Tags.</p>
+<p>If a record is not processed (Processed = False), it will be considered for CleanseMatch processing.</p>
+<p>We will call the MatchEnrich API based on the batch_size value, processing data in chunks with parallelism determined by batch_size. After each chunk is processed, the results will be updated in the destination_table. At the end of the process, the Process Enrichment Data job will be triggered automatically, but only if there is data to be processed.</p>
+</section>
+</section>
 </section>
 </section>
 </section>
@@ -352,7 +625,8 @@
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">1. User Guide</a><ul>
+<li><a class="reference internal" href="#">Introduction</a><ul>
+<li><a class="reference internal" href="#user-guide">1. User Guide</a><ul>
 <li><a class="reference internal" href="#log-in-to-snowflake">1.1 Log in to Snowflake</a></li>
 <li><a class="reference internal" href="#access-snowflake-account-for-individual">1.2 Access Snowflake account for individual</a></li>
 <li><a class="reference internal" href="#setting-up-the-database-and-schema">1.3 Setting Up the Database and Schema</a><ul>
@@ -362,6 +636,27 @@
 <li><a class="reference internal" href="#creating-worksheets">1.4 Creating Worksheets</a><ul>
 <li><a class="reference internal" href="#create-separate-worksheet">Create Separate worksheet</a></li>
 <li><a class="reference internal" href="#configuring-database-and-schema">Configuring Database and Schema</a></li>
+<li><a class="reference internal" href="#adding-source-data-assets">Adding source data assets</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#deploying-scripts-and-sharing-data-in-snowflake">1.5 Deploying Scripts and Sharing Data in Snowflake</a><ul>
+<li><a class="reference internal" href="#managing-the-key-vault">1.5.1 Managing the key vault</a></li>
+<li><a class="reference internal" href="#managing-auth-token">1.5.2 Managing Auth token</a></li>
+<li><a class="reference internal" href="#retrieving-the-token-for-the-client">1.5.3 Retrieving the Token for the Client</a></li>
+<li><a class="reference internal" href="#process-enrichment-data">1.5.4 Process Enrichment Data</a><ul>
+<li><a class="reference internal" href="#optimization"><em>Optimization</em></a></li>
+<li><a class="reference internal" href="#run-jobs"><em>Run Jobs</em></a></li>
+<li><a class="reference internal" href="#running-the-cleansematch-process"><em>Running the Cleansematch Process</em></a><ul>
+<li><a class="reference internal" href="#initial-setup">Initial Setup</a></li>
+<li><a class="reference internal" href="#configuration-and-validation">Configuration and Validation</a></li>
+<li><a class="reference internal" href="#database-and-table-management">Database and Table Management</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id1"><em>Process Enrichment Data</em></a></li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
