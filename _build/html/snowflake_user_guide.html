@@ -366,6 +366,9 @@
 <figure class="align-default">
 <img alt="_images/18.png" src="_images/18.png" />
 </figure>
+</section>
+<section id="load-data">
+<h4>Load data<a class="headerlink" href="#load-data" title="Link to this heading">¶</a></h4>
 <p>After clicking on <strong>Next</strong>, it takes few seconds to load data into table. Ensure all required columns are correctly populated with metadata. Click <strong>Load</strong> data to table to complete the process.</p>
 <figure class="align-default">
 <img alt="_images/19.png" src="_images/19.png" />
@@ -377,44 +380,38 @@
 <p><strong>Note</strong>:</p>
 <ul class="simple">
 <li><p><em>Clicking on ‘Query Data’ opens a new worksheet</em>.</p></li>
-</ul>
-<blockquote>
-<div><ul class="simple">
 <li><p><em>Clicking on ‘Done’ closes the pop-up, and you can then create a worksheet from the dashboard</em>.</p></li>
 </ul>
-</div></blockquote>
 <p>After this, the remaining scripts should be executed one by one. It is recommended to create separate worksheets for each script to be executed.</p>
 <figure class="align-default">
 <img alt="_images/21.png" src="_images/21.png" />
 </figure>
-<p>The table below includes the scripts.</p>
-<p>DROP TABLE IF EXISTS SNOWFLAKECONNECTOR.SFCONNECTOR.BUSINESS_ENTITIES_INPUTS_KULDIP;
-DROP TABLE IF EXISTS SNOWFLAKECONNECTOR.FINAL_SCHEMA.MATCH_MATCHOUTPUT_KULDIP;
-DROP TABLE IF EXISTS SNOWFLAKECONNECTOR.FINAL_SCHEMA.MATCH_ENRICHMENT_KULDIP;</p>
-<blockquote>
-<div><p>DROP TABLE IF EXISTS SNOWFLAKECONNECTOR.FINAL_SCHEMA.STG_KULDIP;</p>
-</div></blockquote>
-<p>Call MATCHBOOK_MAINSCRIPT (‘SNOWFLAKE_DEV’,’SFCONNECTOR’,’AAAA’,’FINAL_SCHEMA’,’MATCHOUTPUT_AAAA’,50,’[SRC::Demo]’);
-call matchbook_enrichmentscript(‘SNOWFLAKE_DEV’, ‘FINAL_SCHEMA’, ‘MATCHOUTPUT_DB_147_TESTING_070401’, ‘FINAL_SCHEMA’, ‘ENRICHMENT_DB_147_TESTING_070401’, 50, ‘[“Firmographics”]’);
-call downloadmatcheddata(‘SNOWFLAKE_DEV’,’FINAL_SCHEMA’,’STG_KULDIP’,’FINAL_SCHEMA’,’MATCHOUTPUT_DB_147_TESTING_070401’,10,’[SRC::Demo]’);</p>
-<p>Select * from “SNOWFLAKECONNECTOR”.”FINAL_SCHEN”.”SNOWFLAKE_DEV_MATCHOUTPUT_DB_147_TESTING_070401”;</p>
-<p><strong>Note</strong>: If we need to re-import the worksheet or deploy a new version of the code, we use ‘<em>DROP TABLE</em>’ and perform cleanup.</p>
+<p>The table below includes the <strong>scripts</strong>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">DROP</span> <span class="n">TABLE</span> <span class="n">IF</span> <span class="n">EXISTS</span> <span class="n">SNOWFLAKECONNECTOR</span><span class="o">.</span><span class="n">SFCONNECTOR</span><span class="o">.</span><span class="n">BUSINESS_ENTITIES_INPUTS_KULDIP</span><span class="p">;</span>
+<span class="n">DROP</span> <span class="n">TABLE</span> <span class="n">IF</span> <span class="n">EXISTS</span> <span class="n">SNOWFLAKECONNECTOR</span><span class="o">.</span><span class="n">FINAL_SCHEMA</span><span class="o">.</span><span class="n">MATCH_MATCHOUTPUT_KULDIP</span><span class="p">;</span>
+<span class="n">DROP</span> <span class="n">TABLE</span> <span class="n">IF</span> <span class="n">EXISTS</span> <span class="n">SNOWFLAKECONNECTOR</span><span class="o">.</span><span class="n">FINAL_SCHEMA</span><span class="o">.</span><span class="n">MATCH_ENRICHMENT_KULDIP</span><span class="p">;</span>
+<span class="n">DROP</span> <span class="n">TABLE</span> <span class="n">IF</span> <span class="n">EXISTS</span> <span class="n">SNOWFLAKECONNECTOR</span><span class="o">.</span><span class="n">FINAL_SCHEMA</span><span class="o">.</span><span class="n">STG_KULDIP</span><span class="p">;</span>
+
+
+
+<span class="n">Call</span> <span class="n">MATCHBOOK_MAINSCRIPT</span> <span class="p">(</span><span class="s1">&#39;SNOWFLAKE_DEV&#39;</span><span class="p">,</span><span class="s1">&#39;SFCONNECTOR&#39;</span><span class="p">,</span><span class="s1">&#39;AAAA&#39;</span><span class="p">,</span><span class="s1">&#39;FINAL_SCHEMA&#39;</span><span class="p">,</span><span class="s1">&#39;MATCHOUTPUT_AAAA&#39;</span><span class="p">,</span><span class="mi">50</span><span class="p">,</span><span class="s1">&#39;[SRC::Demo]&#39;</span><span class="p">);</span>
+<span class="n">call</span> <span class="n">matchbook_enrichmentscript</span><span class="p">(</span><span class="s1">&#39;SNOWFLAKE_DEV&#39;</span><span class="p">,</span> <span class="s1">&#39;FINAL_SCHEMA&#39;</span><span class="p">,</span> <span class="s1">&#39;MATCHOUTPUT_DB_147_TESTING_070401&#39;</span><span class="p">,</span> <span class="s1">&#39;FINAL_SCHEMA&#39;</span><span class="p">,</span> <span class="s1">&#39;ENRICHMENT_DB_147_TESTING_070401&#39;</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="s1">&#39;[&quot;Firmographics&quot;]&#39;</span><span class="p">);</span>
+<span class="n">call</span> <span class="n">downloadmatcheddata</span><span class="p">(</span><span class="s1">&#39;SNOWFLAKE_DEV&#39;</span><span class="p">,</span><span class="s1">&#39;FINAL_SCHEMA&#39;</span><span class="p">,</span><span class="s1">&#39;STG_KULDIP&#39;</span><span class="p">,</span><span class="s1">&#39;FINAL_SCHEMA&#39;</span><span class="p">,</span><span class="s1">&#39;MATCHOUTPUT_DB_147_TESTING_070401&#39;</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="s1">&#39;[SRC::Demo]&#39;</span><span class="p">);</span>
+
+
+
+<span class="n">Select</span> <span class="o">*</span> <span class="kn">from</span><span class="w"> </span><span class="s2">&quot;SNOWFLAKECONNECTOR&quot;</span><span class="o">.</span><span class="s2">&quot;FINAL_SCHEN&quot;</span><span class="o">.</span><span class="s2">&quot;SNOWFLAKE_DEV_MATCHOUTPUT_DB_147_TESTING_070401&quot;</span><span class="p">;</span>
+</pre></div>
+</div>
+<p><strong>Note</strong>: <em>If we need to re-import the worksheet or deploy a new version of the code, we use ‘*DROP TABLE</em>’ and perform cleanup*.</p>
 <ul class="simple">
-<li><p><strong>CALL MATCHBOOK_MAINSCRIPT</strong>: Runs the main Matchbook workflow to cleanse, match, and process your source data.</p></li>
+<li><p><strong>CALL MATCHBOOK_MAINSCRIPT</strong>: Runs the main Matchbook workflow to cleanse, match, and process your source data.
+This is the primary script to kick off the end-to-end data pipeline.</p></li>
+<li><p><strong>CALL MATCHBOOK_ENRICHMENTSCRIPT</strong>: Enriches matched records with additional attributes like firmographics from D&amp;B.
+Use this after matching to add more context and value to your data.</p></li>
+<li><p><strong>CALL DOWNLOADMATCHEDDATA</strong>: Exports the final set of matched and enriched records from Snowflake.
+Use this to retrieve your processed data for reporting or downstream use.</p></li>
 </ul>
-<blockquote>
-<div><p>This is the primary script to kick off the end-to-end data pipeline.</p>
-</div></blockquote>
-<ul class="simple">
-<li><p><strong>CALL MATCHBOOK_ENRICHMENTSCRIPT</strong>: Enriches matched records with additional attributes like firmographics from D&amp;B.</p></li>
-</ul>
-<blockquote>
-<div><p>Use this after matching to add more context and value to your data.</p>
-</div></blockquote>
-<ul class="simple">
-<li><p><strong>CALL DOWNLOADMATCHEDDATA</strong>: Exports the final set of matched and enriched records from Snowflake.</p></li>
-</ul>
-<p>Use this to retrieve your processed data for reporting or downstream use.</p>
 <p>As the user runs these scripts, they trigger specific stored procedures and functions that Snowflake uses to connect to the MBAI server and retrieve the required data for various tasks.</p>
 <p>Here is an example of how it looks:</p>
 <p><strong>Procedures</strong>:</p>
@@ -436,46 +433,38 @@ call downloadmatcheddata(‘SNOWFLAKE_DEV’,’FINAL_SCHEMA’,’STG_KULDIP’
 <li><p>Run the procedure in your worksheet. Once successfully created, a confirmation message will appear in the <strong>Snowflake message box</strong>.</p></li>
 </ol>
 <figure class="align-default">
-<img alt="_images/24.png" src="_images/24.png" />
+<img alt="_images/25.png" src="_images/25.png" />
 </figure>
 <p><strong>Data Sharing Process</strong></p>
 <ol class="arabic simple">
 <li><p>User Data Sharing</p></li>
 </ol>
-<blockquote>
-<div><ol class="loweralpha simple">
+<ol class="loweralpha simple">
 <li><p>Users share <strong>sample data</strong>, identified by a <strong>client ID</strong> (e.g., MBQA1).</p></li>
 <li><p>Data is available within a <strong>specific schema</strong>, allowing users to share either the <strong>schema</strong> or <strong>table</strong>.</p></li>
 </ol>
-</div></blockquote>
 <ol class="arabic simple" start="2">
 <li><p>Granting Access</p></li>
 </ol>
-<blockquote>
-<div><ol class="loweralpha simple">
+<ol class="loweralpha simple">
 <li><p>Perform the <strong>grant share</strong> action to provide access to the recipient.</p></li>
 <li><p>Verify the recipient and confirm that <strong>Matchbook AI</strong> has access to the shared data.</p></li>
 </ol>
-</div></blockquote>
 <ol class="arabic simple" start="3">
 <li><p>Process Establishment</p></li>
 </ol>
-<blockquote>
-<div><ol class="loweralpha simple">
+<ol class="loweralpha simple">
 <li><p>Customer Responsibilities: Follow the outlined steps to share data via <strong>Delta Sharing</strong>.</p></li>
 <li><p>Our Responsibilities: Configure processes and setups based on the shared data.</p></li>
 </ol>
-</div></blockquote>
 <ol class="arabic simple" start="4">
 <li><p>Process Configuration</p></li>
 </ol>
-<blockquote>
-<div><ol class="loweralpha simple">
+<ol class="loweralpha simple">
 <li><p>Job Creation: Set up scripts for <strong>cleanse, match, classify, enrich, and refresh</strong>.</p></li>
 <li><p>Configure <strong>job settings</strong> and <strong>parameters</strong> accordingly.</p></li>
 <li><p>Start by configuring the <strong>share name</strong> in the <strong>Cleanse Match</strong> job.</p></li>
 </ol>
-</div></blockquote>
 <p><strong>Note</strong>: This sharing process is manual. Our system will automatically generate a <strong>Database</strong> linked to your <strong>client ID</strong>, ensuring seamless access. Each client will have a unique identifier.</p>
 <p><strong>Viewing Shared Tables</strong></p>
 <p>To view the tables shared with you, follow these steps:</p>
@@ -516,7 +505,7 @@ call downloadmatcheddata(‘SNOWFLAKE_DEV’,’FINAL_SCHEMA’,’STG_KULDIP’
 <li><p>Implement input merge updates for efficiency.</p></li>
 </ul>
 <figure class="align-default">
-<img alt="_images/25.png" src="_images/25.png" />
+<img alt="_images/26.png" src="_images/26.png" />
 </figure>
 </section>
 <section id="run-jobs">
@@ -533,7 +522,7 @@ call downloadmatcheddata(‘SNOWFLAKE_DEV’,’FINAL_SCHEMA’,’STG_KULDIP’
 <li><p>Execute the script with the required arguments.</p></li>
 </ul>
 <figure class="align-default">
-<img alt="_images/26.png" src="_images/26.png" />
+<img alt="_images/27.png" src="_images/27.png" />
 </figure>
 </section>
 <section id="configuration-and-validation">
@@ -563,17 +552,1548 @@ call downloadmatcheddata(‘SNOWFLAKE_DEV’,’FINAL_SCHEMA’,’STG_KULDIP’
 </ul>
 <p>If the <strong>destination_table</strong> is available:</p>
 <ul class="simple">
-<li><p>Sync the <strong>source_table</strong> and <strong>destination_table</strong> using the primary key provided by the user. Match records and add any that do not exist in the destination_table.</p></li>
-<li><p>Sync records with ERROR status that have been updated in the source_table, update them in the destination_table, and set their status to NEW for reprocessing.</p></li>
-<li><p>During the syncing process, save the current UTC timestamp in the table as a checkpoint for future synchronization of records with ERROR status.</p></li>
+<li><p>Sync the <strong>source_table</strong> and <strong>destination_table</strong> using the primary key provided by the user. Match records and add any that do not exist in the <strong>destination_table</strong>.</p></li>
+<li><p>Sync records with <strong>ERROR</strong> status that have been updated in the <strong>source_table</strong>, update them in the <strong>destination_table</strong>, and set their status to <strong>NEW</strong> for reprocessing.</p></li>
+<li><p>During the syncing process, save the current <strong>UTC timestamp</strong> in the table as a checkpoint for future synchronization of records with <strong>ERROR</strong> status.</p></li>
 </ul>
-<p>For all records in the destination_table:</p>
-<p>If a record is NEW and Tags is NULL or EMPTY, update Tags to NULL if it is EMPTY.</p>
-<p>If the Tags parameter is provided, update records with the provided value in Tags.</p>
-<p>If a record is not processed (Processed = False), it will be considered for CleanseMatch processing.</p>
-<p>We will call the MatchEnrich API based on the batch_size value, processing data in chunks with parallelism determined by batch_size. After each chunk is processed, the results will be updated in the destination_table. At the end of the process, the Process Enrichment Data job will be triggered automatically, but only if there is data to be processed.</p>
+<p>For all records in the <strong>destination_table</strong>:</p>
+<ul class="simple">
+<li><p>If a record is <strong>NEW</strong> and <strong>Tags</strong> is <strong>NULL</strong> or <strong>EMPTY</strong>, update <strong>Tags</strong> to <strong>NULL</strong> if it is <strong>EMPTY</strong>.</p></li>
+<li><p>If the <strong>Tags</strong> parameter is provided, update records with the provided value in <strong>Tags</strong>.</p></li>
+<li><p>If a record is <strong>not processed</strong> (<strong>Processed = False</strong>), it will be considered for <strong>CleanseMatch</strong> processing.</p></li>
+</ul>
+<p>We will call the <strong>MatchEnrich API</strong> based on the <strong>batch_size</strong> value, processing data in chunks with parallelism determined by <strong>batch_size</strong>. After each chunk is processed, the results will be updated in the <strong>destination_table</strong>. At the end of the process, the <strong>Process Enrichment Data</strong> job will be triggered automatically, but only if there is data to be processed.</p>
+<div class="table-wrapper docutils container">
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Field</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Parameters</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>The Database</p></td>
+<td><p>Unity Database name where input data is available.
+If mode is delta sharing, then Database belongs to where you want to store your output results.
+If mode is direct, then Database belongs to where your input data is available and want to store the output result as well.</p></td>
+</tr>
+<tr class="row-even"><td><p>Client identifiers</p></td>
+<td><p>Uniquely identifies different clients in delta sharing mode.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Source schema</p></td>
+<td><p>Name of schema where source data is available.</p></td>
+</tr>
+<tr class="row-even"><td><p>detailing data</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>Destination schema</p></td>
+<td><p>Name of schema where you want to store match output data.</p></td>
+</tr>
+<tr class="row-even"><td><p>API URL</p></td>
+<td><p>Required to call Matchbook AI APIs.</p></td>
+</tr>
+<tr class="row-odd"><td><p>batch size</p></td>
+<td><p>Size of batch. This allows parallel Matchbook API calls. Must be between 1 to 50.</p></td>
+</tr>
+<tr class="row-even"><td><p>A primary key</p></td>
+<td><p>Column name from source data which is uniquely identified across the entire dataset. This is needed to properly function jobs, making updates in the dataset, etc.</p></td>
+</tr>
+<tr class="row-odd"><td><p>An instance URL</p></td>
+<td><p>Required to call Databricks’ REST APIs.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>Note</strong>: <em>This pertains to our instance, as it is running on our dataset</em>.</p>
+<div class="table-wrapper docutils container">
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Field</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Parameters</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>Source schema</p></td>
+<td><p>Name of schema where source data is available.</p></td>
+</tr>
+<tr class="row-even"><td><p>Source table</p></td>
+<td><p>Name of table in which source data is available to do the matching.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Column mapping</p></td>
+<td><p>Workflow needs to call Matchbook API with specific fields, if your data does not have exact columns then you can create a mapping where you can map your columns to Matchbook AI’s conventions.</p></td>
+</tr>
+<tr class="row-even"><td><p>Parallel API calls</p></td>
+<td><p>Maximum is 50.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Scrd ID</p></td>
+<td><p>Source record ID associated with each record.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="downloading-matched-data">
+<h5>Downloading Matched Data<a class="headerlink" href="#downloading-matched-data" title="Link to this heading">¶</a></h5>
+<figure class="align-default">
+<img alt="_images/28.png" src="_images/28.png" />
+</figure>
+<p>After the enrichment process, download the matched data. If a record previously had no matches, it may now have multiple matches, and a <strong>DUNS number</strong> will be generated.</p>
 </section>
 </section>
+</section>
+</section>
+<section id="implementation-guide">
+<h2>2. Implementation guide<a class="headerlink" href="#implementation-guide" title="Link to this heading">¶</a></h2>
+<p>This integration enables Snowflake customers to seamlessly utilize Matchbook AI’s CleanseMatch and enrichment APIs for efficient data transformation and enhancement within their Snowflake environment. By incorporating these APIs, users can perform advanced data cleansing, matching, and enrichment without the need to switch between multiple tools or platforms. This streamlines data pipelines, ensuring accuracy, consistency, and readiness for downstream analysis. Additionally, the integration is designed for scalability, allowing users to process large datasets while maintaining high performance and reliability.</p>
+<section id="implementation-commands-sql">
+<h3>2.1 Implementation Commands.sql<a class="headerlink" href="#implementation-commands-sql" title="Link to this heading">¶</a></h3>
+<p>Run the scripts <strong>one by one</strong>, ensuring that each executes successfully and returns a <strong>successful message</strong>. Follow the <strong>step-by-step process</strong> in the correct <strong>sequence order</strong>, without skipping any commands.</p>
+<figure class="align-default">
+<img alt="_images/29.png" src="_images/29.png" />
+</figure>
+<p><strong>Note</strong>: <em>During Onboarding process, the</em> <strong>Implementations_Commands.sql</strong> <em>file will be shared</em>.</p>
+</section>
+<section id="general-requirements">
+<h3>2.2 General Requirements<a class="headerlink" href="#general-requirements" title="Link to this heading">¶</a></h3>
+<p>The <strong>General Requirements</strong> outline the essential components necessary for the seamless operation and management of the integration. These requirements ensure security, efficiency, and consistency across various processes. Key aspects include Secrets Management, Cleanup, Logging, Onboarding, Common configuration, Retreival. Let’s go through each one in detail.</p>
+<section id="secrets-management">
+<h4>2.2.1 Secrets Management<a class="headerlink" href="#secrets-management" title="Link to this heading">¶</a></h4>
+<p>All sensitive information and common configurations must be securely stored in a secret manager. This includes API credentials and other client-specific settings. Secrets must be scoped per client to ensure data isolation and prevent cross-access.</p>
+<p>Scripts should dynamically retrieve values like the API key, secret, URL, auth token, and subdomain- all provided by Matchbook AI from the secret manager at runtime. Common configurations are centrally managed to promote consistency across jobs.</p>
+<figure class="align-default">
+<img alt="_images/30.png" src="_images/30.png" />
+</figure>
+<p><strong>Column Mapping</strong></p>
+<p>If the customer’s input data has different column names than those expected by Matchbook AI, a column mapping must be defined. This mapping ensures the data aligns with Matchbook’s required structure and enables proper processing.</p>
+<p>Details on each configuration item and how to retrieve or use them are available in section 2.2.5 and section 2.2.6 of this document.</p>
+<figure class="align-default">
+<img alt="_images/31.png" src="_images/31.png" />
+</figure>
+</section>
+<section id="cleanup">
+<h4>2.2.2 Cleanup<a class="headerlink" href="#cleanup" title="Link to this heading">¶</a></h4>
+<p>A script is required to drop all tables in the Snowflake environment associated with a specific client. It should accept a client identifier as an argument and remove all tables linked to that client.</p>
+<figure class="align-default">
+<img alt="_images/21.png" src="_images/21.png" />
+</figure>
+</section>
+<section id="logging">
+<h4>2.2.3 Logging<a class="headerlink" href="#logging" title="Link to this heading">¶</a></h4>
+<p>All scripts must support verbose logging to effectively monitor progress and track execution details. The logging should utilize standard Python logging or an equivalent framework in Snowflake, ensuring clear, structured, and accessible log records for debugging and analysis.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">logging</span>
+
+<span class="n">logging</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">&quot;There are no data to process.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="onboarding">
+<h4>2.2.4 Onboarding<a class="headerlink" href="#onboarding" title="Link to this heading">¶</a></h4>
+<p>Currently, our workflows in Databricks execute Python scripts with runtime arguments. To automate client onboarding, we use scripts that take workflow names and arguments to create workflows instead of configuring them manually. This process is facilitated through Databricks SDKs, and an equivalent should be available in Snowflake for seamless interaction with its components. The script below accepts arguments such as workflow name, client ID, and runtime parameters to create a workflow accordingly. Since we manage three main workflows, similar scripts should be developed to generate workflows using different sets of arguments.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">created_job</span> <span class="o">=</span> <span class="n">workspace_client</span><span class="o">.</span><span class="n">jobs</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">client_id</span><span class="si">}</span><span class="s1"> - Cleansematch&#39;</span><span class="p">,</span> <span class="n">email_notifications</span><span class="o">=</span><span class="n">jobs</span><span class="o">.</span><span class="n">JobEmailNotifications</span><span class="p">(</span> <span class="n">on_failure</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;user@email.com&#39;</span><span class="p">],</span> <span class="n">no_alert_for_skipped_runs</span><span class="o">=</span><span class="kc">True</span><span class="p">),</span> <span class="n">timeout_seconds</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">max_concurrent_runs</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">tasks</span><span class="o">=</span><span class="p">[</span> <span class="n">jobs</span><span class="o">.</span><span class="n">Task</span><span class="p">(</span><span class="n">task_key</span><span class="o">=</span><span class="s2">&quot;Cleansematch&quot;</span><span class="p">,</span> <span class="n">run_if</span><span class="o">=</span><span class="n">RunIf</span><span class="p">(</span><span class="n">RunIf</span><span class="o">.</span><span class="n">ALL_SUCCESS</span><span class="p">),</span> <span class="n">spark_python_task</span><span class="o">=</span><span class="n">jobs</span><span class="o">.</span><span class="n">SparkPythonTask</span><span class="p">(</span> <span class="n">python_file</span><span class="o">=</span><span class="s2">&quot;/Users/knaghera@matchbookai.com/.ide/Databricks_notebooks-9cd5b82c/main.py&quot;</span><span class="p">,</span> <span class="n">parameters</span><span class="o">=</span><span class="p">[</span> <span class="s2">&quot;--client_id&quot;</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">client_id</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="s2">&quot;--source_schema&quot;</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">source_schema</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="s2">&quot;--source_table&quot;</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">source_table</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="s2">&quot;--destination_schema&quot;</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">destination_schema</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="s2">&quot;--destination_table&quot;</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">destination_table</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="s2">&quot;--batch_size&quot;</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">batch_size</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="s2">&quot;--tags&quot;</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">tags</span><span class="si">}</span><span class="s2">&quot;</span> <span class="p">]</span> <span class="p">),</span> <span class="n">existing_cluster_id</span><span class="o">=</span><span class="n">cluster_id</span><span class="p">,</span> <span class="n">timeout_seconds</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">notification_settings</span><span class="o">=</span><span class="n">jobs</span><span class="o">.</span><span class="n">TaskNotificationSettings</span><span class="p">(</span> <span class="n">no_alert_for_skipped_runs</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">no_alert_for_canceled_runs</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">alert_on_last_attempt</span><span class="o">=</span><span class="kc">False</span> <span class="p">))</span> <span class="p">],</span> <span class="n">run_as</span><span class="o">=</span><span class="n">jobs</span><span class="o">.</span><span class="n">JobRunAs</span><span class="p">(</span><span class="n">user_name</span><span class="o">=</span><span class="s1">&#39;user@email.com&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</section>
+<section id="common-configuration">
+<h4>2.2.5 Common Configuration<a class="headerlink" href="#common-configuration" title="Link to this heading">¶</a></h4>
+<p>We maintain several common configurations shared across multiple jobs, ensuring consistency and efficiency. These configurations are securely stored in the secret manager for centralized access, allowing scripts to retrieve them dynamically as needed.</p>
+<div class="table-wrapper docutils container">
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Data Type</p></th>
+<th class="head"><p>Retrieval</p></th>
+<th class="head"><p>Usage</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>api_key</p></td>
+<td><p>string</p></td>
+<td><p>Matchbook AI portal</p></td>
+<td><p>Required to call Matchbook AI APIs.</p></td>
+</tr>
+<tr class="row-odd"><td><p>api_secret</p></td>
+<td><p>string</p></td>
+<td><p>Matchbook AI portal</p></td>
+<td><p>Required to call Matchbook AI APIs.</p></td>
+</tr>
+<tr class="row-even"><td><p>api_url</p></td>
+<td><p>string</p></td>
+<td><p><a class="reference external" href="https://api.my.matchbookservices.com">https://api.my.matchbookservices.com</a></p></td>
+<td><p>Required to call Matchbook AI APIs.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Database</p></td>
+<td><p>string</p></td>
+<td><p>Snowflake portal</p></td>
+<td><p>This is the name of the database. each client will have their separate database in Snowflake.</p></td>
+</tr>
+<tr class="row-even"><td><p>column_mapping</p></td>
+<td><p>string</p></td>
+<td><p>Custom</p></td>
+<td><p>Workflow needs to call Matchbook API with specific fields. If your data does not have exact columns, you can map your columns to Matchbook AI’s conventions.</p></td>
+</tr>
+<tr class="row-odd"><td><p>job_id</p></td>
+<td><p>string</p></td>
+<td><p>Snowflake portal</p></td>
+<td><p>We want to trigger the Process Enrichment Data after completion of Cleansematch &amp; Download Matched Data jobs. This job id belongs to the Process Enrichment Data.</p></td>
+</tr>
+<tr class="row-even"><td><p>primary_key</p></td>
+<td><p>string</p></td>
+<td><p>Input dataset</p></td>
+<td><p>Column name from source data which is uniquely identified across the entire dataset. This is needed to properly function jobs, make updates, etc.</p></td>
+</tr>
+<tr class="row-odd"><td><p>subdomain</p></td>
+<td><p>string</p></td>
+<td><p>Matchbook AI portal</p></td>
+<td><p>Required to call Matchbook AI APIs. We pass it in the API call while retrieving token.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="retrieval">
+<h4>2.2.6 Retrieval<a class="headerlink" href="#retrieval" title="Link to this heading">¶</a></h4>
+<p><strong>Column Mapping</strong>: The column mapping should adhere to the following format, where the keys remain fixed, and the values correspond to the dataset’s column names.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+
+<span class="s1">&#39;SrcRecordId&#39;</span><span class="p">:</span> <span class="s1">&#39;SrcId&#39;</span><span class="p">,</span>
+
+<span class="s1">&#39;CompanyName&#39;</span><span class="p">:</span> <span class="s1">&#39;Company&#39;</span><span class="p">,</span>
+
+<span class="s1">&#39;Address&#39;</span><span class="p">:</span> <span class="s1">&#39;Address&#39;</span><span class="p">,</span>
+
+<span class="s1">&#39;Address2&#39;</span><span class="p">:</span> <span class="s1">&#39;Address2&#39;</span><span class="p">,</span>
+
+<span class="s1">&#39;City&#39;</span><span class="p">:</span> <span class="s1">&#39;City&#39;</span><span class="p">,</span>
+
+<span class="s1">&#39;State&#39;</span><span class="p">:</span> <span class="s1">&#39;State&#39;</span><span class="p">,</span>
+
+<span class="s1">&#39;PostalCode&#39;</span><span class="p">:</span> <span class="s1">&#39;PostalCode&#39;</span><span class="p">,</span>
+
+<span class="s1">&#39;Country&#39;</span><span class="p">:</span> <span class="s1">&#39;Country&#39;</span><span class="p">,</span>
+
+<span class="s1">&#39;PhoneNbr&#39;</span><span class="p">:</span> <span class="s1">&#39;PhoneNbr&#39;</span><span class="p">,</span>
+
+<span class="s1">&#39;Tags&#39;</span><span class="p">:</span> <span class="s1">&#39;Tags&#39;</span><span class="p">,</span>
+
+<span class="s1">&#39;UserName&#39;</span><span class="p">:</span> <span class="s1">&#39;UserName&#39;</span><span class="p">,</span>
+
+<span class="s1">&#39;InLanguage&#39;</span><span class="p">:</span> <span class="s1">&#39;InLanguage&#39;</span><span class="p">,</span>
+
+<span class="s1">&#39;InpDUNS&#39;</span><span class="p">:</span> <span class="s1">&#39;InpDUNS&#39;</span><span class="p">,</span>
+
+<span class="s1">&#39;RegistrationNumber&#39;</span><span class="p">:</span> <span class="s1">&#39;RegistrationNumber&#39;</span><span class="p">,</span>
+
+<span class="s1">&#39;RegistrationNumberType&#39;</span><span class="p">:</span> <span class="s1">&#39;RegistrationNumberType&#39;</span><span class="p">,</span>
+
+<span class="s1">&#39;Domain&#39;</span><span class="p">:</span> <span class="s1">&#39;Domain&#39;</span><span class="p">,</span>
+
+<span class="s1">&#39;Email&#39;</span><span class="p">:</span> <span class="s1">&#39;Email&#39;</span>
+
+ <span class="p">}</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="workflow">
+<h3>2.3 Workflow<a class="headerlink" href="#workflow" title="Link to this heading">¶</a></h3>
+<section id="cleansematch-main-py">
+<h4>2.3.1 Cleansematch (main.py)<a class="headerlink" href="#cleansematch-main-py" title="Link to this heading">¶</a></h4>
+<p>This script is the core process for cleansing and matching source data using the Matchbook AI API. It standardizes input data, removes duplicates, and enriches records by leveraging advanced matching algorithms while retrieving configurations securely from the secret manager.</p>
+<section id="job-configurations">
+<h5><em>Job Configurations</em><a class="headerlink" href="#job-configurations" title="Link to this heading">¶</a></h5>
+<p>Job configurations define the essential parameters required for executing a job. These configurations specify how data should be processed, where it is sourced from, and where the output should be stored. Each configuration includes a name, requirement status, data type, and description of its usage.</p>
+<div class="table-wrapper docutils container">
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Required</p></th>
+<th class="head"><p>Data Type</p></th>
+<th class="head"><p>Usage</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>client_id</p></td>
+<td><p>Yes</p></td>
+<td><p>string</p></td>
+<td><p>Uniquely identifies different clients in delta sharing mode.</p></td>
+</tr>
+<tr class="row-odd"><td><p>source_schema</p></td>
+<td><p>Yes</p></td>
+<td><p>string</p></td>
+<td><p>Name of schema where source data is available.</p></td>
+</tr>
+<tr class="row-even"><td><p>source_table</p></td>
+<td><p>Yes</p></td>
+<td><p>string</p></td>
+<td><p>Name of table in which source data is available to do the matching.</p></td>
+</tr>
+<tr class="row-odd"><td><p>destination_schema</p></td>
+<td><p>Yes</p></td>
+<td><p>string</p></td>
+<td><p>Name of schema where you want to store match output data.</p></td>
+</tr>
+<tr class="row-even"><td><p>destination_table</p></td>
+<td><p>Yes</p></td>
+<td><p>string</p></td>
+<td><p>Name of table where you want to store match output data.</p></td>
+</tr>
+<tr class="row-odd"><td><p>batch_size</p></td>
+<td><p>Yes</p></td>
+<td><p>string</p></td>
+<td><p>Size of batch, this will allow to make parallel Matchbook API calls, must be between 1 to 50.</p></td>
+</tr>
+<tr class="row-even"><td><p>tags</p></td>
+<td><p>No</p></td>
+<td><p>string</p></td>
+<td><p>If you want to pass tags in Matchbook API call.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="process">
+<h5><em>Process</em><a class="headerlink" href="#process" title="Link to this heading">¶</a></h5>
+<ol class="arabic simple">
+<li><p><strong>Parse</strong>, <strong>Prepare</strong>, and <strong>Set Arguments</strong> &amp; <strong>Secret Manager Values</strong></p></li>
+</ol>
+<p>Extract and validate required arguments and configurations from the secret manager.</p>
+<ol class="arabic simple" start="2">
+<li><p><strong>Validate batch_size Configuration</strong></p></li>
+</ol>
+<p>Ensure batch_size is between 1 and 50; otherwise, throw an error.</p>
+<ol class="arabic simple" start="3">
+<li><p><strong>Check and Create Database</strong></p></li>
+</ol>
+<p>Verify if the database exists; if not, create it. Typically, client_id serves as the database name.</p>
+<ol class="arabic simple" start="4">
+<li><p><strong>Check and Create destination_schema</strong></p></li>
+</ol>
+<p>Ensure the destination_schema exists; if not, create it.</p>
+<ol class="arabic simple" start="5">
+<li><p><strong>Handle destination_table</strong> (<strong>where we store the match output result</strong>)</p></li>
+</ol>
+<ul class="simple">
+<li><p>If destination_table does not exist:</p></li>
+</ul>
+<ol class="lowerroman simple">
+<li><p>Clone the source_table.</p></li>
+<li><p>Add a new column called Status and set its default value to NEW.</p></li>
+<li><p>Make it default as NEW so when new records get inserted, it will be set to NEW.</p></li>
+</ol>
+<ul class="simple">
+<li><p>If destination_table exists:</p></li>
+</ul>
+<ol class="lowerroman simple">
+<li><p>Sync source_table and destination_table using the primary key provided by the user, do the matching and if the record does not exist in the destination_table, then we will add it.</p></li>
+<li><p>Sync records which is already processed with ERROR status. If the record is already updated in source_table, then update them in destination_table, and reset their status to NEW for reprocessing.</p></li>
+<li><p>Store the current UTC timestamp as a checkpoint for future syncing of ERROR records.</p></li>
+</ol>
+<ol class="arabic simple" start="6">
+<li><p><strong>Update Records in destination_table</strong></p></li>
+</ol>
+<ul class="simple">
+<li><p>If Status is NEW and Tags is NULL or empty, update Tags to NULL.</p></li>
+<li><p>If a Tags parameter is provided, update records with the given value.</p></li>
+<li><p>If UserName is NULL, update it to ‘Snowflake_User’.</p></li>
+<li><p>If a Processed column exists, retrieve records where Processed = NULL or Processed = FALSE based on batch_size.</p></li>
+<li><p>If no Processed column exists, retrieve records in batches using batch_size.</p></li>
+<li><p>If no records are available, display a message such as Chunk x empty.</p></li>
+</ul>
+<ol class="arabic simple" start="7">
+<li><p><strong>Process Data</strong></p></li>
+</ol>
+<ul class="simple">
+<li><p>Mark retrieved records as MATCHING.</p></li>
+<li><p>Call the MatchEnrich API in parallel, using batch_size to create chunks and optimize performance.</p></li>
+<li><p>Update the results in destination_table after processing each chunk.</p></li>
+</ul>
+<ol class="arabic simple" start="8">
+<li><p><strong>Trigger Process Enrichment Data Job</strong></p></li>
+</ol>
+<p>If data is available for processing, automatically trigger the Process Enrichment Data job at the end of the workflow.</p>
+</section>
+<section id="columns-added-by-matchbook-ai-in-the-destination-table">
+<h5>Columns added by Matchbook AI in the destination_table<a class="headerlink" href="#columns-added-by-matchbook-ai-in-the-destination-table" title="Link to this heading">¶</a></h5>
+<div class="table-wrapper docutils container">
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Column</p></th>
+<th class="head"><p>Purpose</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>StatusCode</p></td>
+<td><p>Status code returned by API call</p></td>
+</tr>
+<tr class="row-odd"><td><p>ResultText</p></td>
+<td><p>Matched, Matched Candidates, or any other message provided by API like error</p></td>
+</tr>
+<tr class="row-even"><td><p>Status</p></td>
+<td><p>Status of the record</p></td>
+</tr>
+<tr class="row-odd"><td><p>MatchOutput</p></td>
+<td><p>Match output data returned by Matchbook AI API</p></td>
+</tr>
+<tr class="row-even"><td><p>EnrichmentOutput</p></td>
+<td><p>Enrichment data returned by Matchbook AI API</p></td>
+</tr>
+<tr class="row-odd"><td><p>Processed</p></td>
+<td><p>Mark record as processed so it will skip next time</p></td>
+</tr>
+<tr class="row-even"><td><p>ProcessedAt</p></td>
+<td><p>Timestamp in UTC when record was processed</p></td>
+</tr>
+<tr class="row-odd"><td><p>DnBDUNSNumber</p></td>
+<td><p>DnBDUNSNumber of record</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>Note</strong>:</p>
+<ul class="simple">
+<li><p><em>The batch_size parameter must be respected, as it is directly proportional to the client’s API rate limit. Parallel API calls can be made, but they must remain within the batch_size limit</em>.</p></li>
+<li><p><em>API calls should be retried in case of failures. HTTP status codes 500, 502, 503, 504, and 429 should trigger a retry. The maximum number of retries is 3, with an exponential backoff before each retry</em>.</p></li>
+</ul>
+</section>
+</section>
+<section id="download-matched-data-refresh-records-py">
+<h4>2.3.2 Download Matched Data (refresh_records.py)<a class="headerlink" href="#download-matched-data-refresh-records-py" title="Link to this heading">¶</a></h4>
+<p>This job oversees the retrieval of manually reviewed and updated records from the Matchbook AI portal. It ensures that any data stewardship actions performed by users, such as corrections, approvals, or enhancements, are accurately reflected in the Snowflake environment.</p>
+<p>Navigate to the <strong>Matchbook AI portal</strong>, and from the <strong>left-hand menu</strong>, select <strong>Data Stewardship</strong>. Under this section, choose <strong>Low Confidence</strong> to access records that require manual review.</p>
+<figure class="align-default">
+<img alt="_images/32.png" src="_images/32.png" />
+</figure>
+<p>The <strong>Low Confidence</strong> section in data stewardship is designed to help users manage records that require manual review due to lower confidence scores. These are typically cases where automated rules don’t provide sufficient certainty for acceptance and need user intervention to ensure high data integrity.</p>
+<p>For example, if your <strong>Auto-Acceptance</strong> rule is configured to accept candidates with a <strong>confidence code of 8, 9, or 10</strong>, then any D&amp;B candidate with a <strong>confidence code of 7 or lower</strong> will be routed to the low confidence queue for review.</p>
+<p>Within this section, users have powerful tools to <strong>filter, accept, reject, and score</strong> records. To begin reviewing, navigate to the <strong>Order by Columns Equals</strong> field and select <strong>SrcRecordID</strong> — this may already be pre-selected by default. Once selected, a table of candidates will be displayed. To view and interact with a specific record, simply click on the <strong>‘+’ icon</strong> next to it, as shown in the screen below.</p>
+<figure class="align-default">
+<img alt="_images/33.png" src="_images/33.png" />
+</figure>
+<p>Under the <strong>Matchbook Rank</strong> column, you will see the <strong>score percentage</strong>. Based on the <strong>highest score</strong>, click on the <strong>black rectangle</strong> under the <strong>Match</strong> column, as shown below. Once selected, it will turn <strong>green</strong>, indicating that the record has been chosen.</p>
+<figure class="align-default">
+<img alt="_images/34.png" src="_images/34.png" />
+</figure>
+<p>Now, click on <strong>Update</strong> on the top-right to update the selected record.</p>
+<figure class="align-default">
+<img alt="_images/35.png" src="_images/35.png" />
+</figure>
+<p>Click on <strong>Dashboard</strong> from the <strong>left-hand menu</strong>. Under <strong>Background Process Statistics</strong>, you will see the <strong>execution time</strong> taken to complete the process.</p>
+<figure class="align-default">
+<img alt="_images/36.png" src="_images/36.png" />
+</figure>
+<section id="id2">
+<h5><em>Job Configurations</em><a class="headerlink" href="#id2" title="Link to this heading">¶</a></h5>
+<p>Job configurations define the essential parameters for storing, retrieving, and processing data.</p>
+<div class="table-wrapper docutils container">
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Required</p></th>
+<th class="head"><p>Data Type</p></th>
+<th class="head"><p>Usage</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>client_id</p></td>
+<td><p>Yes</p></td>
+<td><p>string</p></td>
+<td><p>Uniquely identifies different clients in delta sharing mode.</p></td>
+</tr>
+<tr class="row-odd"><td><p>source_schema</p></td>
+<td><p>Yes</p></td>
+<td><p>string</p></td>
+<td><p>Name of schema where we want to store the match output stage data.</p></td>
+</tr>
+<tr class="row-even"><td><p>source_table</p></td>
+<td><p>Yes</p></td>
+<td><p>string</p></td>
+<td><p>Name of table in which we want to store the match output stage data</p></td>
+</tr>
+<tr class="row-odd"><td><p>destination_schema</p></td>
+<td><p>Yes</p></td>
+<td><p>string</p></td>
+<td><p>Name of schema where match output data is available.</p></td>
+</tr>
+<tr class="row-even"><td><p>destination_table</p></td>
+<td><p>Yes</p></td>
+<td><p>string</p></td>
+<td><p>Name of table where match output data is available.</p></td>
+</tr>
+<tr class="row-odd"><td><p>batch_size</p></td>
+<td><p>Yes</p></td>
+<td><p>string</p></td>
+<td><p>Size of batch, this will allow to make parallel Matchbook API calls, must be between 1 to 50.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="source-table-schema">
+<h5><em>Source Table Schema</em><a class="headerlink" href="#source-table-schema" title="Link to this heading">¶</a></h5>
+<p>The <strong>Source Table Schema</strong> outlines the key fields used to store and track source records, including their identifiers, processing status, timestamps, and enrichment details.</p>
+<div class="table-wrapper docutils container">
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Purpose</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>SrcRecordId</p></td>
+<td><p>Source record is associated with each record.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Tags</p></td>
+<td><p>Tags which were used while calling the Matchbook AI API.</p></td>
+</tr>
+<tr class="row-even"><td><p>DnBDUNSNumber</p></td>
+<td><p>DnBDUNSNumber of record.</p></td>
+</tr>
+<tr class="row-odd"><td><p>CreatedAt</p></td>
+<td><p>UTC timestamp of when record was inserted.</p></td>
+</tr>
+<tr class="row-even"><td><p>Matched</p></td>
+<td><p>Whether CleanseMatchResult API call was performed for this record or not.</p></td>
+</tr>
+<tr class="row-odd"><td><p>MatchedAt</p></td>
+<td><p>When CleanseMatchResult API call was performed, UTC timestamp.</p></td>
+</tr>
+<tr class="row-even"><td><p>Enriched</p></td>
+<td><p>Whether RefreshDUNS API call was performed for this record or not.</p></td>
+</tr>
+<tr class="row-odd"><td><p>EnrichedAt</p></td>
+<td><p>When RefreshDUNS API call was performed, UTC timestamp.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="id3">
+<h5><em>Process</em><a class="headerlink" href="#id3" title="Link to this heading">¶</a></h5>
+<ol class="arabic simple">
+<li><p><strong>Parse, Prepare, and Set Arguments &amp; Secret Manager Values</strong></p></li>
+</ol>
+<p>Extract and validate required arguments and configurations from the secret manager.</p>
+<ol class="arabic simple" start="2">
+<li><p><strong>Validate batch_size Configuration</strong></p></li>
+</ol>
+<p>Ensure batch_size is between 1 and 50; otherwise, throw an error.</p>
+<ol class="arabic simple" start="3">
+<li><p><strong>Ensure Required Schemas Exist</strong></p></li>
+</ol>
+<p>Create source_schema and destination_schema if they do not already exist.</p>
+<ol class="arabic simple" start="4">
+<li><p><strong>Fetch Data from Matchbook API</strong></p></li>
+</ol>
+<ul class="simple">
+<li><p>Continuously call the DownloadMatchOutput API until IsLastPage = true.</p></li>
+<li><p>Collect and store the API response in source_table.</p></li>
+</ul>
+<ol class="arabic simple" start="5">
+<li><p><strong>Remove Duplicates</strong></p></li>
+</ol>
+<p>Eliminate duplicate records from source_table using SrcRecordId, Tags, and DnBDUNSNumber.</p>
+<ol class="arabic simple" start="6">
+<li><p><strong>Process Matched Records</strong></p></li>
+</ol>
+<ul class="simple">
+<li><p>If records exist in source_table, proceed with processing.</p></li>
+<li><p>Identify unmatched records (Matched = False or Matched = NULL).</p></li>
+<li><p>Get records from the source_table order by the SrcRecordId using LIMIT by batch_size.</p></li>
+<li><p>Call the CleanseMatchResult API and update destination_table.</p></li>
+<li><p>Sync updates in destination_table based on SrcRecordId (and Tags, if available in both source and destination tables).</p></li>
+<li><p>Update source_table, setting Matched = True and MatchedAt to the current UTC timestamp.</p></li>
+</ul>
+<ol class="arabic simple" start="7">
+<li><p><strong>Process Enriched Records</strong></p></li>
+</ol>
+<ul class="simple">
+<li><p>Identify non-enriched records (Enriched = False or Enriched = NULL).</p></li>
+<li><p>Get records from the source_table order by the SrcRecordId using LIMIT by batch_size.</p></li>
+<li><p>Call the RefreshDUNS API and update destination_table.</p></li>
+<li><p>Sync updates in destination_table based on SrcRecordId (and Tags, if available in both tables).</p></li>
+<li><p>Update source_table, setting Enriched = True and EnrichedAt to the current UTC timestamp.</p></li>
+</ul>
+<ol class="arabic simple" start="8">
+<li><p><strong>Trigger Process Enrichment Data Job</strong></p></li>
+</ol>
+<p>Automatically trigger the Process Enrichment Data job if there is data to be processed.</p>
+<ol class="arabic simple" start="9">
+<li><p><strong>Clean Up source_table</strong></p></li>
+</ol>
+<p>Remove records where both Matched = True and Enriched = True.</p>
+</section>
+</section>
+<section id="process-enrichment-data-process-enchrichment-data-py">
+<h4>2.3.3 Process Enrichment Data (process_enchrichment_data.py)<a class="headerlink" href="#process-enrichment-data-process-enchrichment-data-py" title="Link to this heading">¶</a></h4>
+<p>This job is responsible for processing enrichment data.</p>
+<section id="id4">
+<h5><em>Job Configurations</em><a class="headerlink" href="#id4" title="Link to this heading">¶</a></h5>
+<p>The <strong>Job Configurations</strong> define key parameters for processing and storing enrichment data.</p>
+<div class="table-wrapper docutils container">
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Required</p></th>
+<th class="head"><p>Data Type</p></th>
+<th class="head"><p>Usage</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>client_id</p></td>
+<td><p>Yes</p></td>
+<td><p>string</p></td>
+<td><p>Uniquely identifies different clients in delta sharing mode.</p></td>
+</tr>
+<tr class="row-odd"><td><p>source_schema</p></td>
+<td><p>Yes</p></td>
+<td><p>string</p></td>
+<td><p>Name of schema where match output data is available.</p></td>
+</tr>
+<tr class="row-even"><td><p>source_table</p></td>
+<td><p>Yes</p></td>
+<td><p>string</p></td>
+<td><p>Name of table where match output data is available.</p></td>
+</tr>
+<tr class="row-odd"><td><p>destination_schema</p></td>
+<td><p>Yes</p></td>
+<td><p>string</p></td>
+<td><p>Name of schema where you want to store the enrichment data.</p></td>
+</tr>
+<tr class="row-even"><td><p>destination_table</p></td>
+<td><p>Yes</p></td>
+<td><p>string</p></td>
+<td><p>Name of table where you want to store the enrichment data.</p></td>
+</tr>
+<tr class="row-odd"><td><p>batch_size</p></td>
+<td><p>Yes</p></td>
+<td><p>string</p></td>
+<td><p>Size of batch, this will allow to process data in chunk.</p></td>
+</tr>
+<tr class="row-even"><td><p>enrichment_types</p></td>
+<td><p>Yes</p></td>
+<td><p>string</p></td>
+<td><p>Type of enrichments you want to consider for processing.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="destination-table-schema">
+<h5><em>Destination Table Schema</em><a class="headerlink" href="#destination-table-schema" title="Link to this heading">¶</a></h5>
+<p>The <strong>Destination Table Schema</strong> defines the structure for storing enriched data, including enrichment type, DnBDUNSNumber, response details, and timestamps.</p>
+<div class="table-wrapper docutils container">
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Field</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>EnrichmentType</p></td>
+<td><p>Type of enrichment, this is tied with enrichment_types configuration.</p></td>
+</tr>
+<tr class="row-odd"><td><p>DnBDUNSNumber</p></td>
+<td><p>DnBDUNSNumber of record.</p></td>
+</tr>
+<tr class="row-even"><td><p>ResponseJSON</p></td>
+<td><p>Enrichment response JSON.</p></td>
+</tr>
+<tr class="row-odd"><td><p>CreatedAt</p></td>
+<td><p>When this record was inserted in UTC timestamp.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="process-flow">
+<h5><em>Process Flow</em><a class="headerlink" href="#process-flow" title="Link to this heading">¶</a></h5>
+<ol class="arabic simple">
+<li><p><strong>Parse, Prepare, and Set Arguments &amp; Secret Manager Values</strong></p></li>
+</ol>
+<p>Extract and validate required arguments and configurations from the secret manager.</p>
+<ol class="arabic simple" start="2">
+<li><p><strong>Validate batch_size Configuration</strong></p></li>
+</ol>
+<p>Ensure batch_size is between 1 and 50; otherwise, throw an error.</p>
+<ol class="arabic simple" start="3">
+<li><p><strong>Retrieve Enriched Records</strong></p></li>
+</ol>
+<ul class="simple">
+<li><p>Get all records with columns primary_key, EnrichmentOutput from the source_table where Status is ENRICHED order by primary_key limit batch_size.</p></li>
+<li><p>If enrichment_types is same as passed argument enrichment_types then proceed further. That is proceed only if enrichment_types matches the provided argument.</p></li>
+<li><p>Extract EnrichmentType and ResponseJSON from the retrieved records.</p></li>
+<li><p>If destination_table does not exist, create it and insert the extracted data.</p></li>
+<li><p>If destination_table exists:</p></li>
+</ul>
+<ol class="lowerroman simple">
+<li><p>If a record with the same DnBDUNSNumber and EnrichmentType exists, update ResponseJSON and CreatedAt.</p></li>
+<li><p>Otherwise, insert a new record with EnrichmentType, DnBDUNSNumber, ResponseJSON, and CreatedAt.</p></li>
+</ol>
+<ul class="simple">
+<li><p>For all the records that are retrieved from the source_table, mark status as PROCESSED_ENRICHMENT_DATA using primary_key.</p></li>
+</ul>
+<ol class="arabic simple" start="4">
+<li><p><strong>Skip Processing if No Records Found</strong></p></li>
+</ol>
+<p>If there are no records to process, skip the above steps.</p>
+</section>
+</section>
+<section id="monitoring">
+<h4>2.3.4 Monitoring<a class="headerlink" href="#monitoring" title="Link to this heading">¶</a></h4>
+<p>By integrating the Monitoring workflow with the Snowflake environment, organizations can efficiently automate the process of tracking and managing data operations. This setup involves invoking two critical APIs- one for download monitoring notifications and another for download transfer DUNS output. These API calls are orchestrated via a Snowflake stored procedure, which executes the workflow and stores the resulting data into designated Snowflake tables. This enables real-time visibility into data movements and provides clients with structured outputs that can be leveraged for further processing, auditing, or analytics.</p>
+<p>Go to ‘<strong>Projects</strong>’ in the left-side menu and select ‘<strong>Worksheets</strong>’.</p>
+<figure class="align-default">
+<img alt="_images/37.png" src="_images/37.png" />
+</figure>
+<p>On the top-right, click on the drop-down menu.</p>
+<figure class="align-default">
+<img alt="_images/38.png" src="_images/38.png" />
+</figure>
+<p>Select <strong>Create SQL Worksheet</strong> as shown in the screen below.</p>
+<figure class="align-default">
+<img alt="_images/39.png" src="_images/39.png" />
+</figure>
+<p>Click on the drop-down menu and select the database and schema as shown below.</p>
+<figure class="align-default">
+<img alt="_images/40.png" src="_images/40.png" />
+</figure>
+<p>For the Snowflake implementation, there are three main scripts involved.</p>
+<ol class="arabic simple">
+<li><p><strong>Integration Monitoring</strong>: This primarily handles the configuration of secrets required for making API calls. This includes details such as the client ID, API key, API secret, and the backend API endpoint- specifically, the Matchbook server API. These credentials and endpoints are essential to securely authenticate and communicate with the APIs during the monitoring workflow.</p></li>
+</ol>
+<figure class="align-default">
+<img alt="_images/41.png" src="_images/41.png" />
+</figure>
+<p><strong>SQL Command</strong>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">----</span> <span class="n">SET</span> <span class="n">UP</span> <span class="n">START</span> <span class="o">---------</span>
+
+<span class="n">CREATE</span> <span class="n">OR</span> <span class="n">REPLACE</span> <span class="n">NETWORK</span> <span class="n">RULE</span> <span class="n">SNOWFLAKECONNECTOR</span><span class="o">.</span><span class="n">SFCONNECTOR</span><span class="o">.</span><span class="n">NR_API</span>
+
+<span class="n">MODE</span> <span class="o">=</span> <span class="n">EGRESS</span>
+
+<span class="n">TYPE</span> <span class="o">=</span> <span class="n">HOST_PORT</span>
+
+<span class="n">VALUE_LIST</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;api-qa.my.matchbookservices.com:443&#39;</span><span class="p">);</span>
+
+
+
+
+
+<span class="n">CREATE</span> <span class="n">OR</span> <span class="n">REPLACE</span> <span class="n">SECRET</span> <span class="n">SNOWFLAKECONNECTOR</span><span class="o">.</span><span class="n">SFCONNECTOR</span><span class="o">.</span><span class="n">SECRET_API</span>
+
+<span class="n">TYPE</span> <span class="o">=</span> <span class="n">GENERIC_STRING</span>
+
+<span class="n">SECRET_STRING</span> <span class="o">=</span> <span class="s1">&#39;aTZVYnNOSEtoVUF5SVAwWTBQeWFXZz09OnQ2bUNobHYzR1RlVHJ5eFk0czhaUWc9PQ==&#39;</span><span class="p">;</span>
+
+
+
+<span class="n">CREATE</span> <span class="n">OR</span> <span class="n">REPLACE</span> <span class="n">EXTERNAL</span> <span class="n">ACCESS</span> <span class="n">INTEGRATION</span> <span class="n">apis_access_integration</span>
+
+<span class="n">ALLOWED_NETWORK_RULES</span> <span class="o">=</span> <span class="p">(</span><span class="n">SNOWFLAKECONNECTOR</span><span class="o">.</span><span class="n">SFCONNECTOR</span><span class="o">.</span><span class="n">NR_API</span><span class="p">)</span>
+
+<span class="n">ALLOWED_AUTHENTICATION_SECRETS</span> <span class="o">=</span> <span class="p">(</span><span class="n">SNOWFLAKECONNECTOR</span><span class="o">.</span><span class="n">SFCONNECTOR</span><span class="o">.</span><span class="n">SECRET_API</span><span class="p">)</span>
+
+<span class="n">ENABLED</span> <span class="o">=</span> <span class="n">TRUE</span><span class="p">;</span>
+
+
+
+<span class="o">----</span> <span class="n">SET</span> <span class="n">UP</span> <span class="n">END</span> <span class="o">---------</span>
+
+<span class="o">------</span><span class="n">Secrets</span> <span class="n">Creation</span><span class="o">---------------------------------</span>
+
+<span class="n">CREATE</span> <span class="n">OR</span> <span class="n">REPLACE</span> <span class="n">TABLE</span> <span class="n">monitoring_dev_secrets_store</span> <span class="p">(</span>
+
+       <span class="n">key_name</span> <span class="n">STRING</span><span class="p">,</span>
+
+       <span class="n">secret_value</span> <span class="n">STRING</span>
+
+   <span class="p">);</span>
+
+<span class="n">INSERT</span> <span class="n">INTO</span> <span class="n">monitoring_dev_secrets_store</span> <span class="p">(</span><span class="n">key_name</span><span class="p">,</span> <span class="n">secret_value</span><span class="p">)</span>
+
+<span class="n">VALUES</span> <span class="p">(</span><span class="s1">&#39;client_id&#39;</span><span class="p">,</span> <span class="s1">&#39;monitoring_dev&#39;</span><span class="p">);</span>
+
+<span class="n">INSERT</span> <span class="n">INTO</span> <span class="n">monitoring_dev_secrets_store</span> <span class="p">(</span><span class="n">key_name</span><span class="p">,</span> <span class="n">secret_value</span><span class="p">)</span>
+
+<span class="n">VALUES</span> <span class="p">(</span><span class="s1">&#39;api_key&#39;</span><span class="p">,</span> <span class="s1">&#39;Ne5HFLeAFPZ5lWJkyLB9sQ==&#39;</span><span class="p">);</span>
+
+<span class="n">INSERT</span> <span class="n">INTO</span> <span class="n">monitoring_dev_secrets_store</span> <span class="p">(</span><span class="n">key_name</span><span class="p">,</span> <span class="n">secret_value</span><span class="p">)</span>
+
+<span class="n">VALUES</span> <span class="p">(</span><span class="s1">&#39;api_secret&#39;</span><span class="p">,</span> <span class="s1">&#39;sEWOxfEZ9VRDbwLCiJT71w==&#39;</span><span class="p">);</span>
+
+<span class="n">INSERT</span> <span class="n">INTO</span> <span class="n">monitoring_dev_secrets_store</span> <span class="p">(</span><span class="n">key_name</span><span class="p">,</span> <span class="n">secret_value</span><span class="p">)</span>
+
+<span class="n">VALUES</span> <span class="p">(</span>
+
+       <span class="s1">&#39;api_url&#39;</span><span class="p">,</span>
+
+       <span class="s1">&#39;https://api-qa.my.matchbookservices.com&#39;</span>
+
+   <span class="p">);</span>
+
+<span class="n">INSERT</span> <span class="n">INTO</span> <span class="n">monitoring_dev_secrets_store</span> <span class="p">(</span><span class="n">key_name</span><span class="p">,</span> <span class="n">secret_value</span><span class="p">)</span>
+
+<span class="n">VALUES</span> <span class="p">(</span>
+
+       <span class="s1">&#39;auth_token&#39;</span><span class="p">,</span>
+
+       <span class="s1">&#39;aTZVYnNOSEtoVUF5SVAwWTBQeWFXZz09OnQ2bUNobHYzR1RlVHJ5eFk0czhaUWc9PQ==&#39;</span>
+
+   <span class="p">);</span>
+
+<span class="n">INSERT</span> <span class="n">INTO</span> <span class="n">monitoring_dev_secrets_store</span> <span class="p">(</span><span class="n">key_name</span><span class="p">,</span> <span class="n">secret_value</span><span class="p">)</span>
+
+<span class="n">VALUES</span> <span class="p">(</span><span class="s1">&#39;Database&#39;</span><span class="p">,</span> <span class="s1">&#39;SNOWFLAKECONNECTOR&#39;</span><span class="p">);</span>
+
+<span class="n">INSERT</span> <span class="n">INTO</span> <span class="n">monitoring_dev_secrets_store</span> <span class="p">(</span><span class="n">key_name</span><span class="p">,</span> <span class="n">secret_value</span><span class="p">)</span> <span class="n">VALUES</span> <span class="p">(</span><span class="s1">&#39;column_mapping&#39;</span><span class="p">,</span><span class="s1">&#39;{</span>
+
+   <span class="s2">&quot;SrcRecordId&quot;</span><span class="p">:</span> <span class="s2">&quot;SrcId&quot;</span><span class="p">,</span>
+
+   <span class="s2">&quot;CompanyName&quot;</span><span class="p">:</span> <span class="s2">&quot;Company&quot;</span><span class="p">,</span>
+
+   <span class="s2">&quot;Address&quot;</span><span class="p">:</span> <span class="s2">&quot;Address&quot;</span><span class="p">,</span>
+
+   <span class="s2">&quot;Address2&quot;</span><span class="p">:</span> <span class="s2">&quot;Address2&quot;</span><span class="p">,</span>
+
+   <span class="s2">&quot;City&quot;</span><span class="p">:</span> <span class="s2">&quot;City&quot;</span><span class="p">,</span>
+
+   <span class="s2">&quot;State&quot;</span><span class="p">:</span> <span class="s2">&quot;State&quot;</span><span class="p">,</span>
+
+   <span class="s2">&quot;PostalCode&quot;</span><span class="p">:</span> <span class="s2">&quot;PostalCode&quot;</span><span class="p">,</span>
+
+   <span class="s2">&quot;Country&quot;</span><span class="p">:</span> <span class="s2">&quot;Country&quot;</span><span class="p">,</span>
+
+   <span class="s2">&quot;PhoneNbr&quot;</span><span class="p">:</span> <span class="s2">&quot;PhoneNbr&quot;</span><span class="p">,</span>
+
+   <span class="s2">&quot;Tags&quot;</span><span class="p">:</span> <span class="s2">&quot;Tags&quot;</span><span class="p">,</span>
+
+   <span class="s2">&quot;UserName&quot;</span><span class="p">:</span> <span class="s2">&quot;UserName&quot;</span><span class="p">,</span>
+
+   <span class="s2">&quot;InLanguage&quot;</span><span class="p">:</span> <span class="s2">&quot;InLanguage&quot;</span><span class="p">,</span>
+
+   <span class="s2">&quot;InpDUNS&quot;</span><span class="p">:</span> <span class="s2">&quot;InpDUNS&quot;</span><span class="p">,</span>
+
+   <span class="s2">&quot;RegistrationNumber&quot;</span><span class="p">:</span> <span class="s2">&quot;RegistrationNumber&quot;</span><span class="p">,</span>
+
+   <span class="s2">&quot;RegistrationNumberType&quot;</span><span class="p">:</span> <span class="s2">&quot;RegistrationNumberType&quot;</span><span class="p">,</span>
+
+   <span class="s2">&quot;Domain&quot;</span><span class="p">:</span> <span class="s2">&quot;Domain&quot;</span><span class="p">,</span>
+
+   <span class="s2">&quot;Email&quot;</span><span class="p">:</span> <span class="s2">&quot;Email&quot;</span>
+
+<span class="p">}</span><span class="s1">&#39;);</span>
+
+<span class="n">INSERT</span> <span class="n">INTO</span> <span class="n">monitoring_dev_secrets_store</span> <span class="p">(</span><span class="n">key_name</span><span class="p">,</span> <span class="n">secret_value</span><span class="p">)</span>
+
+<span class="n">VALUES</span> <span class="p">(</span>
+
+       <span class="s1">&#39;databricks_instance_url&#39;</span><span class="p">,</span>
+
+       <span class="s1">&#39;https://dbc-64cc9203-e861.cloud.databricks.com&#39;</span>
+
+   <span class="p">);</span>
+
+<span class="n">INSERT</span> <span class="n">INTO</span> <span class="n">monitoring_dev_secrets_store</span> <span class="p">(</span><span class="n">key_name</span><span class="p">,</span> <span class="n">secret_value</span><span class="p">)</span>
+
+<span class="n">VALUES</span> <span class="p">(</span>
+
+       <span class="s1">&#39;delta_sharing_identifier&#39;</span><span class="p">,</span>
+
+       <span class="s1">&#39;aws:us-east-1:53a661c7-c5c7-4b43-a35f-57c2279805fe&#39;</span>
+
+   <span class="p">);</span>
+
+<span class="n">INSERT</span> <span class="n">INTO</span> <span class="n">monitoring_dev_secrets_store</span> <span class="p">(</span><span class="n">key_name</span><span class="p">,</span> <span class="n">secret_value</span><span class="p">)</span>
+
+<span class="n">VALUES</span> <span class="p">(</span><span class="s1">&#39;job_id&#39;</span><span class="p">,</span> <span class="s1">&#39;549094540964005&#39;</span><span class="p">);</span>
+
+<span class="n">INSERT</span> <span class="n">INTO</span> <span class="n">monitoring_dev_secrets_store</span> <span class="p">(</span><span class="n">key_name</span><span class="p">,</span> <span class="n">secret_value</span><span class="p">)</span>
+
+<span class="n">VALUES</span> <span class="p">(</span><span class="s1">&#39;primary_key&#39;</span><span class="p">,</span> <span class="s1">&#39;Index&#39;</span><span class="p">);</span>
+
+<span class="n">INSERT</span> <span class="n">INTO</span> <span class="n">monitoring_dev_secrets_store</span> <span class="p">(</span><span class="n">key_name</span><span class="p">,</span> <span class="n">secret_value</span><span class="p">)</span>
+
+<span class="n">VALUES</span> <span class="p">(</span><span class="s1">&#39;subdomain&#39;</span><span class="p">,</span> <span class="s1">&#39;mb-qa1&#39;</span><span class="p">);</span>
+
+
+
+
+
+<span class="o">---------------------------------------------------------</span>
+
+<span class="o">----</span> <span class="n">SET</span> <span class="n">UP</span> <span class="n">START</span> <span class="o">---------</span>
+
+
+
+<span class="n">CREATE</span> <span class="n">OR</span> <span class="n">REPLACE</span> <span class="n">NETWORK</span> <span class="n">RULE</span> <span class="n">api_network_rule</span>
+
+ <span class="n">MODE</span> <span class="o">=</span> <span class="n">EGRESS</span>
+
+ <span class="n">TYPE</span> <span class="o">=</span> <span class="n">HOST_PORT</span>
+
+ <span class="n">VALUE_LIST</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;api-qa.my.matchbookservices.com&#39;</span><span class="p">,</span><span class="s1">&#39;0.0.0.0:443&#39;</span><span class="p">,</span><span class="s1">&#39;dbc-64cc9203-e861.cloud.databricks.com&#39;</span><span class="p">);</span>
+
+
+
+<span class="n">CREATE</span> <span class="n">OR</span> <span class="n">REPLACE</span> <span class="n">NETWORK</span> <span class="n">RULE</span> <span class="n">SNOWFLAKECONNECTOR</span><span class="o">.</span><span class="n">SFCONNECTOR</span><span class="o">.</span><span class="n">NR_API</span>
+
+ <span class="n">MODE</span> <span class="o">=</span> <span class="n">EGRESS</span>
+
+ <span class="n">TYPE</span> <span class="o">=</span> <span class="n">HOST_PORT</span>
+
+ <span class="n">VALUE_LIST</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;api-qa.my.matchbookservices.com:443&#39;</span><span class="p">);</span>
+
+
+
+<span class="n">CREATE</span> <span class="n">OR</span> <span class="n">REPLACE</span> <span class="n">SECRET</span> <span class="n">SNOWFLAKECONNECTOR</span><span class="o">.</span><span class="n">SFCONNECTOR</span><span class="o">.</span><span class="n">SECRET_API</span>
+
+ <span class="n">TYPE</span> <span class="o">=</span> <span class="n">GENERIC_STRING</span>
+
+<span class="n">SECRET_STRING</span> <span class="o">=</span> <span class="s1">&#39;aTZVYnNOSEtoVUF5SVAwWTBQeWFXZz09OnQ2bUNobHYzR1RlVHJ5eFk0czhaUWc9PQ==&#39;</span><span class="p">;</span>
+
+
+
+<span class="n">CREATE</span> <span class="n">OR</span> <span class="n">REPLACE</span> <span class="n">EXTERNAL</span> <span class="n">ACCESS</span> <span class="n">INTEGRATION</span> <span class="n">apis_access_integration</span>
+
+ <span class="n">ALLOWED_NETWORK_RULES</span> <span class="o">=</span> <span class="p">(</span><span class="n">SNOWFLAKECONNECTOR</span><span class="o">.</span><span class="n">SFCONNECTOR</span><span class="o">.</span><span class="n">NR_API</span><span class="p">)</span>
+
+ <span class="n">ALLOWED_AUTHENTICATION_SECRETS</span> <span class="o">=</span> <span class="p">(</span><span class="n">SNOWFLAKECONNECTOR</span><span class="o">.</span><span class="n">SFCONNECTOR</span><span class="o">.</span><span class="n">SECRET_API</span><span class="p">)</span>
+
+ <span class="n">ENABLED</span> <span class="o">=</span> <span class="n">TRUE</span><span class="p">;</span>
+
+
+
+<span class="o">----</span> <span class="n">SET</span> <span class="n">UP</span> <span class="n">END</span> <span class="o">---------</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="2">
+<li><p><strong>Monitoring UDF</strong>: This is where the core logic of the workflow is implemented. Within this script, there are three main functions. The first function is responsible for generating an access token, which is required to authenticate and access the Matchbook server. This access token is essential for making the subsequent API calls. Once the access token is obtained, the second function uses it to call the <strong>DownloadMonitoringNotification API</strong>. The response from this API call is written into the first target table. After that, the third function makes a second API call to <strong>DownloadTransferDUNS API</strong>, and the response from this call is written into another target table.</p></li>
+</ol>
+<figure class="align-default">
+<img alt="_images/41.png" src="_images/41.png" />
+</figure>
+<p><strong>SQL Command</strong>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">CREATE</span> <span class="n">OR</span> <span class="n">REPLACE</span> <span class="n">PROCEDURE</span> <span class="n">DoMonitoring</span><span class="p">(</span>
+
+   <span class="n">PageNumber</span> <span class="n">INT</span><span class="p">,</span>
+
+   <span class="n">ApiName</span> <span class="n">STRING</span><span class="p">,</span>
+
+   <span class="n">MarkAsExported</span> <span class="n">BOOLEAN</span><span class="p">,</span>
+
+   <span class="n">DownloadNotificationTable</span> <span class="n">STRING</span><span class="p">,</span>
+
+   <span class="n">TransferDUNSTable</span> <span class="n">STRING</span>
+
+<span class="p">)</span>
+
+<span class="n">RETURNS</span> <span class="n">STRING</span>
+
+<span class="n">LANGUAGE</span> <span class="n">PYTHON</span>
+
+<span class="n">RUNTIME_VERSION</span> <span class="o">=</span> <span class="s1">&#39;3.8&#39;</span>
+
+<span class="n">PACKAGES</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;requests&#39;</span><span class="p">,</span> <span class="s1">&#39;snowflake-snowpark-python&#39;</span><span class="p">)</span>
+
+<span class="n">HANDLER</span> <span class="o">=</span> <span class="s1">&#39;main&#39;</span>
+
+<span class="n">EXTERNAL_ACCESS_INTEGRATIONS</span> <span class="o">=</span> <span class="p">(</span><span class="n">apis_access_integration</span><span class="p">)</span>
+
+<span class="n">AS</span>
+
+<span class="err">$$</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">requests</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">random</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">datetime</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">snowflake.snowpark</span><span class="w"> </span><span class="kn">import</span> <span class="n">Session</span>
+
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">session</span><span class="p">:</span> <span class="n">Session</span><span class="p">,</span> <span class="n">PageNumber</span><span class="p">,</span> <span class="n">ApiName</span><span class="p">,</span> <span class="n">MarkAsExported</span><span class="p">,</span> <span class="n">DownloadNotificationTable</span><span class="p">,</span> <span class="n">TransferDUNSTable</span><span class="p">):</span>
+
+   <span class="c1"># Fetch secrets from the secrets store</span>
+
+   <span class="n">secrets</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">sql</span><span class="p">(</span><span class="s2">&quot;SELECT key_name, secret_value FROM MONITORING_DEV_SECRETS_STORE&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">collect</span><span class="p">()</span>
+
+   <span class="n">secrets_dict</span> <span class="o">=</span> <span class="p">{</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;KEY_NAME&#39;</span><span class="p">]:</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;SECRET_VALUE&#39;</span><span class="p">]</span> <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">secrets</span><span class="p">}</span>
+
+
+
+   <span class="c1"># Extract required parameters from secrets</span>
+
+   <span class="n">api_url</span> <span class="o">=</span> <span class="n">secrets_dict</span><span class="p">[</span><span class="s1">&#39;api_url&#39;</span><span class="p">]</span>
+
+   <span class="n">subDomain</span> <span class="o">=</span> <span class="n">secrets_dict</span><span class="p">[</span><span class="s1">&#39;subdomain&#39;</span><span class="p">]</span>
+
+   <span class="n">auth_token</span> <span class="o">=</span> <span class="n">secrets_dict</span><span class="p">[</span><span class="s1">&#39;auth_token&#39;</span><span class="p">]</span>
+
+
+
+   <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
+
+       <span class="s2">&quot;Authorization&quot;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;Basic </span><span class="si">{</span><span class="n">auth_token</span><span class="si">}</span><span class="s2">&quot;</span>
+
+   <span class="p">}</span>
+
+
+
+   <span class="c1"># Call the GetToken API</span>
+
+   <span class="n">get_token_url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">api_url</span><span class="si">}</span><span class="s2">/GetToken?subDomain=</span><span class="si">{</span><span class="n">subDomain</span><span class="si">}</span><span class="s2">&quot;</span>
+
+   <span class="k">try</span><span class="p">:</span>
+
+       <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">get_token_url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
+
+       <span class="n">response</span><span class="o">.</span><span class="n">raise_for_status</span><span class="p">()</span>
+
+       <span class="n">token_data</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+
+       <span class="n">access_token</span> <span class="o">=</span> <span class="n">token_data</span><span class="p">[</span><span class="s1">&#39;access_token&#39;</span><span class="p">]</span>
+
+   <span class="k">except</span> <span class="n">requests</span><span class="o">.</span><span class="n">exceptions</span><span class="o">.</span><span class="n">RequestException</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+
+       <span class="k">return</span> <span class="p">{</span>
+
+           <span class="s2">&quot;Processed&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
+
+           <span class="s2">&quot;Error&quot;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;GetToken API request failed: </span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+
+           <span class="s2">&quot;StatusCode&quot;</span><span class="p">:</span> <span class="n">e</span><span class="o">.</span><span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="k">if</span> <span class="n">e</span><span class="o">.</span><span class="n">response</span> <span class="k">else</span> <span class="kc">None</span><span class="p">,</span>
+
+           <span class="s2">&quot;ResultText&quot;</span><span class="p">:</span> <span class="n">e</span><span class="o">.</span><span class="n">response</span><span class="o">.</span><span class="n">text</span> <span class="k">if</span> <span class="n">e</span><span class="o">.</span><span class="n">response</span> <span class="k">else</span> <span class="kc">None</span><span class="p">,</span>
+
+           <span class="s2">&quot;Status&quot;</span><span class="p">:</span> <span class="s2">&quot;ERROR&quot;</span>
+
+       <span class="p">}</span>
+
+
+
+   <span class="c1"># Call the DownloadMonitoringNotifications API</span>
+
+   <span class="n">download_url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">api_url</span><span class="si">}</span><span class="s2">/DownloadMonitoringNotifications?token=</span><span class="si">{</span><span class="n">access_token</span><span class="si">}</span><span class="s2">&amp;PageNumber=</span><span class="si">{</span><span class="n">PageNumber</span><span class="si">}</span><span class="s2">&amp;ApiName=</span><span class="si">{</span><span class="n">ApiName</span><span class="si">}</span><span class="s2">&amp;MarkAsExported=</span><span class="si">{</span><span class="n">MarkAsExported</span><span class="si">}</span><span class="s2">&quot;</span>
+
+   <span class="k">try</span><span class="p">:</span>
+
+       <span class="n">download_response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">download_url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;Authorization&quot;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;Bearer </span><span class="si">{</span><span class="n">access_token</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">})</span>
+
+       <span class="n">download_response</span><span class="o">.</span><span class="n">raise_for_status</span><span class="p">()</span>
+
+       <span class="n">download_data</span> <span class="o">=</span> <span class="n">download_response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+
+
+
+       <span class="c1"># Create table if it doesn&#39;t exist</span>
+
+       <span class="n">session</span><span class="o">.</span><span class="n">sql</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;&quot;&quot;</span>
+
+<span class="s2">       CREATE TABLE IF NOT EXISTS </span><span class="si">{</span><span class="n">DownloadNotificationTable</span><span class="si">}</span><span class="s2"> (</span>
+
+<span class="s2">           id STRING,</span>
+
+<span class="s2">           type STRING,</span>
+
+<span class="s2">           response STRING,</span>
+
+<span class="s2">           timestamp TIMESTAMP</span>
+
+<span class="s2">       )</span>
+
+<span class="s2">       &quot;&quot;&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">collect</span><span class="p">()</span>
+
+
+
+       <span class="c1"># Prepare response with metadata</span>
+
+       <span class="n">response_with_metadata</span> <span class="o">=</span> <span class="p">{</span>
+
+           <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">(</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1000</span><span class="p">,</span> <span class="mi">9999</span><span class="p">)),</span>
+
+           <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;DownloadMonitoringNotifications&quot;</span><span class="p">,</span>
+
+           <span class="s2">&quot;response&quot;</span><span class="p">:</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">download_data</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;&#39;&quot;</span><span class="p">,</span> <span class="s2">&quot;&#39;&#39;&quot;</span><span class="p">),</span> <span class="c1"># Escape single quotes</span>
+
+           <span class="s2">&quot;timestamp&quot;</span><span class="p">:</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
+
+       <span class="p">}</span>
+
+
+
+       <span class="c1"># Insert response into the table</span>
+
+       <span class="n">insert_query</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;&quot;&quot;</span>
+
+<span class="s2">       INSERT INTO </span><span class="si">{</span><span class="n">DownloadNotificationTable</span><span class="si">}</span><span class="s2"> (id, type, response, timestamp)</span>
+
+<span class="s2">       VALUES (&#39;</span><span class="si">{</span><span class="n">response_with_metadata</span><span class="p">[</span><span class="s2">&quot;id&quot;</span><span class="p">]</span><span class="si">}</span><span class="s2">&#39;, &#39;</span><span class="si">{</span><span class="n">response_with_metadata</span><span class="p">[</span><span class="s2">&quot;type&quot;</span><span class="p">]</span><span class="si">}</span><span class="s2">&#39;, &#39;</span><span class="si">{</span><span class="n">response_with_metadata</span><span class="p">[</span><span class="s2">&quot;response&quot;</span><span class="p">]</span><span class="si">}</span><span class="s2">&#39;, &#39;</span><span class="si">{</span><span class="n">response_with_metadata</span><span class="p">[</span><span class="s2">&quot;timestamp&quot;</span><span class="p">]</span><span class="si">}</span><span class="s2">&#39;)</span>
+
+<span class="s2">       &quot;&quot;&quot;</span>
+
+       <span class="n">session</span><span class="o">.</span><span class="n">sql</span><span class="p">(</span><span class="n">insert_query</span><span class="p">)</span><span class="o">.</span><span class="n">collect</span><span class="p">()</span>
+
+   <span class="k">except</span> <span class="n">requests</span><span class="o">.</span><span class="n">exceptions</span><span class="o">.</span><span class="n">RequestException</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+
+       <span class="k">return</span> <span class="p">{</span>
+
+           <span class="s2">&quot;Processed&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
+
+           <span class="s2">&quot;Error&quot;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;DownloadMonitoringNotifications API request failed: </span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+
+           <span class="s2">&quot;StatusCode&quot;</span><span class="p">:</span> <span class="n">e</span><span class="o">.</span><span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="k">if</span> <span class="n">e</span><span class="o">.</span><span class="n">response</span> <span class="k">else</span> <span class="kc">None</span><span class="p">,</span>
+
+           <span class="s2">&quot;ResultText&quot;</span><span class="p">:</span> <span class="n">e</span><span class="o">.</span><span class="n">response</span><span class="o">.</span><span class="n">text</span> <span class="k">if</span> <span class="n">e</span><span class="o">.</span><span class="n">response</span> <span class="k">else</span> <span class="kc">None</span><span class="p">,</span>
+
+           <span class="s2">&quot;Status&quot;</span><span class="p">:</span> <span class="s2">&quot;ERROR&quot;</span>
+
+       <span class="p">}</span>
+
+
+
+   <span class="c1"># Call the DownloadTransferDUNS API</span>
+
+   <span class="n">transfer_url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">api_url</span><span class="si">}</span><span class="s2">/DownloadTransferDUNS?token=</span><span class="si">{</span><span class="n">access_token</span><span class="si">}</span><span class="s2">&amp;MarkAsExported=</span><span class="si">{</span><span class="n">MarkAsExported</span><span class="si">}</span><span class="s2">&quot;</span>
+
+   <span class="k">try</span><span class="p">:</span>
+
+       <span class="n">transfer_response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">transfer_url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;Authorization&quot;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;Bearer </span><span class="si">{</span><span class="n">access_token</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">})</span>
+
+       <span class="n">transfer_response</span><span class="o">.</span><span class="n">raise_for_status</span><span class="p">()</span>
+
+       <span class="n">transfer_data</span> <span class="o">=</span> <span class="n">transfer_response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+
+
+
+       <span class="c1"># Create table if it doesn&#39;t exist</span>
+
+       <span class="n">session</span><span class="o">.</span><span class="n">sql</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;&quot;&quot;</span>
+
+<span class="s2">       CREATE TABLE IF NOT EXISTS </span><span class="si">{</span><span class="n">TransferDUNSTable</span><span class="si">}</span><span class="s2"> (</span>
+
+<span class="s2">           id STRING,</span>
+
+<span class="s2">           type STRING,</span>
+
+<span class="s2">           response STRING,</span>
+
+<span class="s2">           timestamp TIMESTAMP</span>
+
+<span class="s2">       )</span>
+
+<span class="s2">       &quot;&quot;&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">collect</span><span class="p">()</span>
+
+
+
+       <span class="c1"># Prepare response with metadata</span>
+
+       <span class="n">transfer_response_with_metadata</span> <span class="o">=</span> <span class="p">{</span>
+
+           <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">(</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1000</span><span class="p">,</span> <span class="mi">9999</span><span class="p">)),</span>
+
+           <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;DownloadTransferDUNS&quot;</span><span class="p">,</span>
+
+           <span class="s2">&quot;response&quot;</span><span class="p">:</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">transfer_data</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;&#39;&quot;</span><span class="p">,</span> <span class="s2">&quot;&#39;&#39;&quot;</span><span class="p">),</span> <span class="c1"># Escape single quotes</span>
+
+           <span class="s2">&quot;timestamp&quot;</span><span class="p">:</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
+
+       <span class="p">}</span>
+
+
+
+       <span class="c1"># Insert response into the table</span>
+
+       <span class="n">transfer_insert_query</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;&quot;&quot;</span>
+
+<span class="s2">       INSERT INTO </span><span class="si">{</span><span class="n">TransferDUNSTable</span><span class="si">}</span><span class="s2"> (id, type, response, timestamp)</span>
+
+<span class="s2">       VALUES (&#39;</span><span class="si">{</span><span class="n">transfer_response_with_metadata</span><span class="p">[</span><span class="s2">&quot;id&quot;</span><span class="p">]</span><span class="si">}</span><span class="s2">&#39;, &#39;</span><span class="si">{</span><span class="n">transfer_response_with_metadata</span><span class="p">[</span><span class="s2">&quot;type&quot;</span><span class="p">]</span><span class="si">}</span><span class="s2">&#39;, &#39;</span><span class="si">{</span><span class="n">transfer_response_with_metadata</span><span class="p">[</span><span class="s2">&quot;response&quot;</span><span class="p">]</span><span class="si">}</span><span class="s2">&#39;, &#39;</span><span class="si">{</span><span class="n">transfer_response_with_metadata</span><span class="p">[</span><span class="s2">&quot;timestamp&quot;</span><span class="p">]</span><span class="si">}</span><span class="s2">&#39;)</span>
+
+<span class="s2">       &quot;&quot;&quot;</span>
+
+       <span class="n">session</span><span class="o">.</span><span class="n">sql</span><span class="p">(</span><span class="n">transfer_insert_query</span><span class="p">)</span><span class="o">.</span><span class="n">collect</span><span class="p">()</span>
+
+    <span class="k">except</span> <span class="n">requests</span><span class="o">.</span><span class="n">exceptions</span><span class="o">.</span><span class="n">RequestException</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+
+       <span class="k">return</span> <span class="p">{</span>
+
+           <span class="s2">&quot;Processed&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
+
+           <span class="s2">&quot;Error&quot;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;DownloadTransferDUNS API request failed: </span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+
+           <span class="s2">&quot;StatusCode&quot;</span><span class="p">:</span> <span class="n">e</span><span class="o">.</span><span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="k">if</span> <span class="n">e</span><span class="o">.</span><span class="n">response</span> <span class="k">else</span> <span class="kc">None</span><span class="p">,</span>
+
+           <span class="s2">&quot;ResultText&quot;</span><span class="p">:</span> <span class="n">e</span><span class="o">.</span><span class="n">response</span><span class="o">.</span><span class="n">text</span> <span class="k">if</span> <span class="n">e</span><span class="o">.</span><span class="n">response</span> <span class="k">else</span> <span class="kc">None</span><span class="p">,</span>
+
+           <span class="s2">&quot;Status&quot;</span><span class="p">:</span> <span class="s2">&quot;ERROR&quot;</span>
+
+       <span class="p">}</span>
+
+
+
+   <span class="k">return</span> <span class="s1">&#39;API calls completed successfully&#39;</span>
+
+
+
+<span class="err">$$</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>The below <strong>stored procedure</strong> is responsible for orchestrating the entire process, including making all the API calls. When we execute this stored procedure, we pass several parameters:</p>
+<figure class="align-default">
+<img alt="_images/42.png" src="_images/42.png" />
+</figure>
+<div class="table-wrapper docutils container">
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Field</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Page Number</p></td>
+<td><p>This corresponds to the paginated Download Monitoring Notification API.
+Example: we might pass page 1. That is 1, –PageNumber.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Group Name</p></td>
+<td><p>This is the identifier for the group under which the clients are registered. We’re querying data related to this specific group.
+Example: <strong>‘Matchbook_blocks_Finanace_Test_1’</strong></p></td>
+</tr>
+<tr class="row-even"><td><p>Mark as Exported</p></td>
+<td><p>We are passing this as <strong>false</strong> for this run.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Target Table Names</p></td>
+<td><p><strong>`DOWNLOAD_MONITORING_OUTPUT`</strong> and <strong>`DOWNLOAD_TRANSFER_DUNS_OUTPUT`</strong> are the two tables where the API responses will be written.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Once the procedure is executed, the first API call (<strong>DownloadMonitoringNotification</strong>) runs successfully, and the response is written into the first table. This response is typically a large JSON payload and is dumped as-is into the table.</p>
+<figure class="align-default">
+<img alt="_images/43.png" src="_images/43.png" />
+</figure>
+<p>Next, the second API call (<strong>DownloadTransferDUNS</strong>) is made, and its response is written into the second table.</p>
+<figure class="align-default">
+<img alt="_images/44.png" src="_images/44.png" />
+</figure>
+<ol class="arabic simple" start="3">
+<li><p><strong>Testing</strong>: The third part of the script is primarily used for <strong>testing</strong> the overall flow. It triggers the execution of the UDF and validates the end-to-end process. As part of this implementation, two new tables are created to store the responses from each of the API calls.</p></li>
+</ol>
+<figure class="align-default">
+<img alt="_images/45.png" src="_images/45.png" />
+</figure>
+<p><strong>SQL Command</strong>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">delete</span> <span class="kn">from</span><span class="w"> </span><span class="nn">SNOWFLAKECONNECTOR.SFCONNECTOR.DOWNLOAD_MONITORING_OUTPUT</span> <span class="n">where</span> <span class="nb">id</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">;</span>
+
+
+
+<span class="n">delete</span> <span class="kn">from</span><span class="w"> </span><span class="nn">SNOWFLAKECONNECTOR.SFCONNECTOR.DOWNLOAD_TRANSFER_DUNS_OUTPUT</span> <span class="n">where</span> <span class="nb">id</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">;</span>
+
+
+
+
+
+<span class="o">---</span> <span class="n">TEST</span> <span class="n">MONITORING</span> <span class="n">SNOWFLAKE</span> <span class="n">APP</span> <span class="o">---</span>
+
+<span class="n">CALL</span> <span class="n">DoMonitoring</span><span class="p">(</span>
+
+   <span class="mi">1</span><span class="p">,</span> <span class="o">--</span> <span class="n">PageNumber</span>
+
+   <span class="s1">&#39;Matchbook_Blocks_Finance_TEST_1&#39;</span><span class="p">,</span> <span class="o">--</span> <span class="n">ApiName</span>
+
+   <span class="n">false</span><span class="p">,</span> <span class="o">--</span> <span class="n">MarkAsExported</span>
+
+   <span class="s1">&#39;DOWNLOAD_MONITORING_OUTPUT&#39;</span><span class="p">,</span> <span class="o">--</span> <span class="n">DownloadNotificationTable</span>
+
+   <span class="s1">&#39;DOWNLOAD_TRANSFER_DUNS_OUTPUT&#39;</span> <span class="o">--</span> <span class="n">TransferDUNSTable</span>
+
+<span class="p">);</span>
+
+
+
+<span class="o">---</span> <span class="n">VERIFY</span> <span class="n">THE</span> <span class="n">MONITORING</span> <span class="n">RESULT</span> <span class="n">IN</span> <span class="n">TABLES</span>
+
+<span class="n">select</span> <span class="o">*</span> <span class="kn">from</span><span class="w"> </span><span class="nn">SNOWFLAKECONNECTOR.SFCONNECTOR.DOWNLOAD_MONITORING_OUTPUT</span><span class="p">;</span>
+
+
+
+<span class="n">select</span> <span class="o">*</span> <span class="kn">from</span><span class="w"> </span><span class="nn">SNOWFLAKECONNECTOR.SFCONNECTOR.DOWNLOAD_TRANSFER_DUNS_OUTPUT</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>The two tables involved are:</p>
+<ol class="arabic simple">
+<li><p><strong>DOWNLOAD_MONITORING_OUTPUT</strong> – contains the large JSON response from the first API.</p></li>
+</ol>
+<figure class="align-default">
+<img alt="_images/46.png" src="_images/46.png" />
+</figure>
+<ol class="arabic simple" start="2">
+<li><p><strong>DOWNLOAD_TRANSFER_DUNS_OUTPUT</strong> – contains the response from the second API call.</p></li>
+</ol>
+<figure class="align-default">
+<img alt="_images/47.png" src="_images/47.png" />
+</figure>
+</section>
+</section>
+<section id="data-movement-with-status">
+<h3>2.4 Data Movement with Status<a class="headerlink" href="#data-movement-with-status" title="Link to this heading">¶</a></h3>
+<p>The <strong>Data Movement with Status</strong> defines different processing stages for records, each assigned a specific status code. These statuses help track the progress of data as it moves through matching, enrichment, and processing workflows.</p>
+<div class="table-wrapper docutils container">
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Field</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>NEW</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-odd"><td><p>MATCHING</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-even"><td><p>DS_QUEUE</p></td>
+<td><p>2</p></td>
+</tr>
+<tr class="row-odd"><td><p>MATCHED</p></td>
+<td><p>3</p></td>
+</tr>
+<tr class="row-even"><td><p>ENRICHED</p></td>
+<td><p>4</p></td>
+</tr>
+<tr class="row-odd"><td><p>ERROR</p></td>
+<td><p>5</p></td>
+</tr>
+<tr class="row-even"><td><p>PROCESSED_ENRICHMENT_DATA</p></td>
+<td><p>6</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<ol class="arabic simple">
+<li><p><strong>Initial Cloning</strong></p></li>
+</ol>
+<blockquote>
+<div><p>When a record is cloned from source_table to destination_table, it is marked as <strong>NEW</strong>.</p>
+</div></blockquote>
+<ol class="arabic simple" start="2">
+<li><p><strong>Before API Call</strong></p></li>
+</ol>
+<blockquote>
+<div><p>Before calling the MatchEnrich API, the record status is updated to <strong>MATCHING</strong>.</p>
+</div></blockquote>
+<ol class="arabic simple" start="3">
+<li><p><strong>Processing API Response</strong></p></li>
+</ol>
+<ul class="simple">
+<li><p>If the API call returns <strong>status code 200</strong>:</p></li>
+</ul>
+<blockquote>
+<div><ol class="lowerroman simple">
+<li><p>If ResultText is <strong>Match Candidates</strong>, mark the record as <strong>DS_QUEUE</strong>.</p></li>
+<li><p>If ResultText is <strong>Matched</strong>:</p></li>
+</ol>
+<blockquote>
+<div><ul class="simple">
+<li><p>If EnrichmentOutput is <strong>not empty</strong>, mark the record as <strong>ENRICHED</strong>.</p></li>
+<li><p>If EnrichmentOutput is <strong>empty</strong>, mark the record as <strong>MATCHED</strong>.</p></li>
+</ul>
+</div></blockquote>
+</div></blockquote>
+<ul class="simple">
+<li><p>If the API call returns any <strong>status code other than 200</strong>, mark the record as <strong>ERROR</strong>.</p></li>
+</ul>
+<ol class="arabic simple">
+<li><p><strong>Processing Results from CleanseMatchResult API</strong></p></li>
+</ol>
+<ul class="simple">
+<li><p>If the API call returns <strong>status code 200</strong>:</p></li>
+</ul>
+<ol class="lowerroman simple">
+<li><p>If ResultText is <strong>Match Candidates</strong>, mark the record as <strong>DS_QUEUE</strong>.</p></li>
+<li><p>If ResultText is <strong>Matched</strong>, mark the record as <strong>MATCHED</strong>.</p></li>
+</ol>
+<ul class="simple">
+<li><p>If the API call returns any <strong>status code other than 200</strong>, mark the record as <strong>ERROR</strong>.</p></li>
+</ul>
+<ol class="arabic simple" start="2">
+<li><p><strong>Processing Results from RefreshDUNS API</strong></p></li>
+</ol>
+<ul class="simple">
+<li><p>If the API call returns <strong>status code 200</strong>:</p></li>
+</ul>
+<ol class="lowerroman simple">
+<li><p>If Output is <strong>not empty</strong>, mark the record as <strong>ENRICHED</strong>.</p></li>
+<li><p>If Output is <strong>empty</strong>, mark the record as <strong>ERROR</strong>.</p></li>
+</ol>
+<ul class="simple">
+<li><p>If the API call returns any <strong>status code other than 200</strong>, mark the record as <strong>ERROR</strong>.</p></li>
+</ul>
+<p>After processing enrichment data, update the record status to <strong>PROCESSED_ENRICHMENT_DATA</strong>.</p>
+</section>
+<section id="api-calls-guidelines">
+<h3>2.5 API Calls Guidelines<a class="headerlink" href="#api-calls-guidelines" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>Authenticate using <strong>JWT tokens</strong>.</p></li>
+<li><p>Cache tokens to reduce redundant authentication requests.</p></li>
+<li><p>If the API returns <strong>401</strong>, refresh the token and retry.</p></li>
+<li><p>Implement retry logic for <strong>500, 502, 503, 504, and 429</strong> errors using <strong>exponential backoff</strong>, with a maximum of <strong>3 retries</strong>.</p></li>
+</ul>
+</section>
+<section id="task-scheduling">
+<h3>2.6 Task Scheduling<a class="headerlink" href="#task-scheduling" title="Link to this heading">¶</a></h3>
+<p>Task Scheduling in Snowflake enables the automation of SQL operations, including calling stored procedures, at defined intervals or in a specific sequence. Snowflake provides flexible options such as time based CRON SCHEDULE or AFTER.</p>
+<figure class="align-default">
+<img alt="_images/48.png" src="_images/48.png" />
+</figure>
+<section id="create-a-warehouse-for-task-execution">
+<h4>1. Create a Warehouse for Task Execution<a class="headerlink" href="#create-a-warehouse-for-task-execution" title="Link to this heading">¶</a></h4>
+<p>First, create a warehouse that will be used to execute the scheduled tasks. This warehouse will automatically suspend after 5 minutes of inactivity and automatically resume when needed.</p>
+<p>Make sure the stored procedure SFCONNECTOR.MATCHBOOK_MAINSCRIPT is already created and tested. It should be a <strong>callable stored procedure</strong>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">CREATE</span> <span class="n">WAREHOUSE</span> <span class="n">IF</span> <span class="n">NOT</span> <span class="n">EXISTS</span> <span class="n">my_test_warehouse</span>
+
+<span class="n">WAREHOUSE_SIZE</span> <span class="o">=</span> <span class="s1">&#39;SMALL&#39;</span>
+
+<span class="n">AUTO_SUSPEND</span> <span class="o">=</span> <span class="mi">300</span> <span class="o">--</span> <span class="n">Suspends</span> <span class="n">after</span> <span class="mi">5</span> <span class="n">minutes</span> <span class="n">of</span> <span class="n">inactivity</span>
+
+<span class="n">AUTO_RESUME</span> <span class="o">=</span> <span class="n">TRUE</span><span class="p">;</span>
+</pre></div>
+</div>
+</section>
+<section id="task-setup">
+<h4>2. Task Setup<a class="headerlink" href="#task-setup" title="Link to this heading">¶</a></h4>
+<section id="option-1-monitoring-job-every-5-mins">
+<h5><em>Option 1: Monitoring Job Every 5 mins</em><a class="headerlink" href="#option-1-monitoring-job-every-5-mins" title="Link to this heading">¶</a></h5>
+<p>Next, we will create a task that runs the stored procedure <strong>DoMonitoring</strong> every 5 minutes. Before creating the task, we ensure any existing task with the same name is dropped.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">DROP</span> <span class="n">TASK</span> <span class="n">IF</span> <span class="n">EXISTS</span> <span class="n">my_monitoring_task_test</span><span class="p">;</span>
+
+
+
+<span class="n">CREATE</span> <span class="n">TASK</span> <span class="n">my_monitoring_task_test</span>
+
+<span class="n">WAREHOUSE</span> <span class="o">=</span> <span class="s1">&#39;my_test_warehouse&#39;</span>
+
+<span class="n">SCHEDULE</span> <span class="o">=</span> <span class="s1">&#39;USING CRON */5 * * * * UTC&#39;</span> <span class="o">--</span> <span class="n">This</span> <span class="n">runs</span> <span class="n">the</span> <span class="n">task</span> <span class="n">every</span> <span class="mi">5</span> <span class="n">minutes</span>
+
+<span class="n">AS</span>
+
+<span class="n">CALL</span> <span class="n">DoMonitoring</span><span class="p">(</span>
+
+<span class="mi">1</span><span class="p">,</span> <span class="o">--</span> <span class="n">PageNumber</span>
+
+<span class="s1">&#39;Matchbook_Blocks_Finance_TEST_1&#39;</span><span class="p">,</span> <span class="o">--</span> <span class="n">ApiName</span>
+
+<span class="n">false</span><span class="p">,</span> <span class="o">--</span> <span class="n">MarkAsExported</span>
+
+<span class="s1">&#39;DOWNLOAD_MONITORING_OUTPUT&#39;</span><span class="p">,</span> <span class="o">--</span> <span class="n">DownloadNotificationTable</span> <span class="s1">&#39;DOWNLOAD_TRANSFER_DUNS_OUTPUT&#39;</span> <span class="o">--</span> <span class="n">TransferDUNSTable</span> <span class="p">);</span>
+</pre></div>
+</div>
+<p><strong>Resume the task to start the Scheduling</strong>:</p>
+<p>By default, tasks are created in a suspended state. We need to resume the task to start the scheduling.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">ALTER</span> <span class="n">TASK</span> <span class="n">my_monitoring_task_test</span> <span class="n">RESUME</span><span class="p">;</span>
+</pre></div>
+</div>
+<figure class="align-default">
+<img alt="_images/49.png" src="_images/49.png" />
+</figure>
+<p><strong>Verify the task is running correctly</strong>:</p>
+<p>You can verify the task is running correctly by checking its details.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">SHOW</span> <span class="n">TASKS</span> <span class="n">LIKE</span> <span class="s1">&#39;my_monitoring_task_test&#39;</span><span class="p">;</span>
+</pre></div>
+</div>
+<p><strong>Suspend the task after testing</strong>:</p>
+<p>Once you have tested the task and confirmed it is working as expected, you can suspend it.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">ALTER</span> <span class="n">TASK</span> <span class="n">my_monitoring_task_test</span> <span class="n">SUSPEND</span><span class="p">;</span>
+</pre></div>
+</div>
+</section>
+<section id="option-2-production-job-sequence-with-dependencies">
+<h5><em>Option 2: Production Job Sequence with Dependencies</em><a class="headerlink" href="#option-2-production-job-sequence-with-dependencies" title="Link to this heading">¶</a></h5>
+<p>Before you begin, make sure your <strong>stored procedures</strong> are created and tested (e.g., SFCONNECTOR.MATCHBOOK_MAINSCRIPT).</p>
+<p><strong>Create Task 1: Run Main Script Daily at 2 AM UTC</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">CREATE</span> <span class="n">OR</span> <span class="n">REPLACE</span> <span class="n">TASK</span> <span class="n">SFCONNECTOR</span><span class="o">.</span><span class="n">RUN_MATCHBOOK_MAINSCRIPT_TASK</span>
+
+<span class="n">WAREHOUSE</span> <span class="o">=</span> <span class="o">&lt;</span><span class="n">your_warehouse</span><span class="o">&gt;</span>
+
+<span class="n">SCHEDULE</span> <span class="o">=</span> <span class="s1">&#39;USING CRON 0 2 * * * UTC&#39;</span>  <span class="o">--</span> <span class="n">Runs</span> <span class="n">daily</span> <span class="n">at</span> <span class="mi">2</span> <span class="n">AM</span> <span class="n">UTC</span>
+
+<span class="n">AS</span>
+
+<span class="n">CALL</span> <span class="n">SFCONNECTOR</span><span class="o">.</span><span class="n">MATCHBOOK_MAINSCRIPT</span><span class="p">();</span>
+</pre></div>
+</div>
+<p>Once after successful completion of the the first script, the second script is going to run.</p>
+<p><strong>Create Task 2: Run Enrichment Script After Task 1</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">CREATE</span> <span class="n">OR</span> <span class="n">REPLACE</span> <span class="n">TASK</span> <span class="n">SFCONNECTOR</span><span class="o">.</span><span class="n">TASK_MATCHBOOK_ENRICHMENTSCRIPT</span>
+
+<span class="n">WAREHOUSE</span> <span class="o">=</span> <span class="o">&lt;</span><span class="n">your_warehouse</span><span class="o">&gt;</span>
+
+<span class="n">AFTER</span> <span class="n">SFCONNECTOR</span><span class="o">.</span><span class="n">TASK_MATCHBOOK_MAINSCRIPT</span>
+
+<span class="n">AS</span>
+
+<span class="n">CALL</span> <span class="n">SFCONNECTOR</span><span class="o">.</span><span class="n">MATCHBOOK_ENRICHMENTSCRIPT</span><span class="p">();</span>
+</pre></div>
+</div>
+<p><strong>Create Task 3: Run Download Refresh Script After Task 2</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">CREATE</span> <span class="n">OR</span> <span class="n">REPLACE</span> <span class="n">TASK</span> <span class="n">SFCONNECTOR</span><span class="o">.</span><span class="n">TASK_MATCHBOOK_DOWNLOADREFRESHSCRIPT</span>
+
+<span class="n">WAREHOUSE</span> <span class="o">=</span> <span class="o">&lt;</span><span class="n">your_warehouse</span><span class="o">&gt;</span>
+
+<span class="n">AFTER</span> <span class="n">SFCONNECTOR</span><span class="o">.</span><span class="n">TASK_MATCHBOOK_ENRICHMENTSCRIPT</span>
+
+<span class="n">AS</span>
+
+<span class="n">CALL</span> <span class="n">SFCONNECTOR</span><span class="o">.</span><span class="n">MATCHBOOK_DOWNLOADREFRESHSCRIPT</span><span class="p">();</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="activating-tasks">
+<h4>3. Activating Tasks<a class="headerlink" href="#activating-tasks" title="Link to this heading">¶</a></h4>
+<p>Tasks are created in a suspended state. Resume them to activate scheduling:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">ALTER</span> <span class="n">TASK</span> <span class="n">SFCONNECTOR</span><span class="o">.</span><span class="n">TASK_MATCHBOOK_MAINSCRIPT</span> <span class="n">RESUME</span><span class="p">;</span>
+
+<span class="n">ALTER</span> <span class="n">TASK</span> <span class="n">SFCONNECTOR</span><span class="o">.</span><span class="n">TASK_MATCHBOOK_ENRICHMENTSCRIPT</span> <span class="n">RESUME</span><span class="p">;</span>
+
+<span class="n">ALTER</span> <span class="n">TASK</span> <span class="n">SFCONNECTOR</span><span class="o">.</span><span class="n">TASK_MATCHBOOK_DOWNLOADREFRESHSCRIPT</span> <span class="n">RESUME</span><span class="p">;</span>
+</pre></div>
+</div>
+</section>
+<section id="running-tasks-manually-optional">
+<h4>4. Running Tasks Manually (Optional)<a class="headerlink" href="#running-tasks-manually-optional" title="Link to this heading">¶</a></h4>
+<p>If you want to manually trigger a task:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">EXECUTE</span> <span class="n">TASK</span> <span class="n">SFCONNECTOR</span><span class="o">.</span><span class="n">RUN_MATCHBOOK_MAINSCRIPT_TASK</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Or call the stored procedure directly:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">CALL</span> <span class="n">SFCONNECTOR</span><span class="o">.</span><span class="n">MATCHBOOK_MAINSCRIPT</span><span class="p">();</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="monitor-task-execution">
+<h3>5. Monitor Task Execution<a class="headerlink" href="#monitor-task-execution" title="Link to this heading">¶</a></h3>
+<p>Check execution history for any task:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">SELECT</span> <span class="o">*</span>
+
+<span class="n">FROM</span> <span class="n">TABLE</span><span class="p">(</span><span class="n">INFORMATION_SCHEMA</span><span class="o">.</span><span class="n">TASK_HISTORY</span><span class="p">(</span>
+
+   <span class="n">TASK_NAME</span> <span class="o">=&gt;</span> <span class="s1">&#39;SFCONNECTOR.TASK_MATCHBOOK_MAINSCRIPT&#39;</span><span class="p">,</span>
+
+   <span class="n">RESULT_LIMIT</span> <span class="o">=&gt;</span> <span class="mi">10</span>
+
+<span class="p">));</span>
+</pre></div>
+</div>
 </section>
 </section>
 </section>
@@ -637,6 +2157,7 @@ call downloadmatcheddata(‘SNOWFLAKE_DEV’,’FINAL_SCHEMA’,’STG_KULDIP’
 <li><a class="reference internal" href="#create-separate-worksheet">Create Separate worksheet</a></li>
 <li><a class="reference internal" href="#configuring-database-and-schema">Configuring Database and Schema</a></li>
 <li><a class="reference internal" href="#adding-source-data-assets">Adding source data assets</a></li>
+<li><a class="reference internal" href="#load-data">Load data</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#deploying-scripts-and-sharing-data-in-snowflake">1.5 Deploying Scripts and Sharing Data in Snowflake</a><ul>
@@ -653,10 +2174,60 @@ call downloadmatcheddata(‘SNOWFLAKE_DEV’,’FINAL_SCHEMA’,’STG_KULDIP’
 </ul>
 </li>
 <li><a class="reference internal" href="#id1"><em>Process Enrichment Data</em></a></li>
+<li><a class="reference internal" href="#downloading-matched-data">Downloading Matched Data</a></li>
 </ul>
 </li>
 </ul>
 </li>
+</ul>
+</li>
+<li><a class="reference internal" href="#implementation-guide">2. Implementation guide</a><ul>
+<li><a class="reference internal" href="#implementation-commands-sql">2.1 Implementation Commands.sql</a></li>
+<li><a class="reference internal" href="#general-requirements">2.2 General Requirements</a><ul>
+<li><a class="reference internal" href="#secrets-management">2.2.1 Secrets Management</a></li>
+<li><a class="reference internal" href="#cleanup">2.2.2 Cleanup</a></li>
+<li><a class="reference internal" href="#logging">2.2.3 Logging</a></li>
+<li><a class="reference internal" href="#onboarding">2.2.4 Onboarding</a></li>
+<li><a class="reference internal" href="#common-configuration">2.2.5 Common Configuration</a></li>
+<li><a class="reference internal" href="#retrieval">2.2.6 Retrieval</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#workflow">2.3 Workflow</a><ul>
+<li><a class="reference internal" href="#cleansematch-main-py">2.3.1 Cleansematch (main.py)</a><ul>
+<li><a class="reference internal" href="#job-configurations"><em>Job Configurations</em></a></li>
+<li><a class="reference internal" href="#process"><em>Process</em></a></li>
+<li><a class="reference internal" href="#columns-added-by-matchbook-ai-in-the-destination-table">Columns added by Matchbook AI in the destination_table</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#download-matched-data-refresh-records-py">2.3.2 Download Matched Data (refresh_records.py)</a><ul>
+<li><a class="reference internal" href="#id2"><em>Job Configurations</em></a></li>
+<li><a class="reference internal" href="#source-table-schema"><em>Source Table Schema</em></a></li>
+<li><a class="reference internal" href="#id3"><em>Process</em></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#process-enrichment-data-process-enchrichment-data-py">2.3.3 Process Enrichment Data (process_enchrichment_data.py)</a><ul>
+<li><a class="reference internal" href="#id4"><em>Job Configurations</em></a></li>
+<li><a class="reference internal" href="#destination-table-schema"><em>Destination Table Schema</em></a></li>
+<li><a class="reference internal" href="#process-flow"><em>Process Flow</em></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#monitoring">2.3.4 Monitoring</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#data-movement-with-status">2.4 Data Movement with Status</a></li>
+<li><a class="reference internal" href="#api-calls-guidelines">2.5 API Calls Guidelines</a></li>
+<li><a class="reference internal" href="#task-scheduling">2.6 Task Scheduling</a><ul>
+<li><a class="reference internal" href="#create-a-warehouse-for-task-execution">1. Create a Warehouse for Task Execution</a></li>
+<li><a class="reference internal" href="#task-setup">2. Task Setup</a><ul>
+<li><a class="reference internal" href="#option-1-monitoring-job-every-5-mins"><em>Option 1: Monitoring Job Every 5 mins</em></a></li>
+<li><a class="reference internal" href="#option-2-production-job-sequence-with-dependencies"><em>Option 2: Production Job Sequence with Dependencies</em></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#activating-tasks">3. Activating Tasks</a></li>
+<li><a class="reference internal" href="#running-tasks-manually-optional">4. Running Tasks Manually (Optional)</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#monitor-task-execution">5. Monitor Task Execution</a></li>
 </ul>
 </li>
 </ul>

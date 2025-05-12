@@ -12,5 +12,5 @@ Introduction
 .. toctree::
    :maxdepth: 2
    :caption: Contents:
-
+   
    snowflake_user_guide
